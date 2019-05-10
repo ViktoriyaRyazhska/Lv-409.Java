@@ -3,6 +3,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class LongestSubsequence implements Executable{
+    private Scanner scan;
+
+    public LongestSubsequence(Scanner scan) {
+        this.scan = scan;
+    }
 
     @Override
     public void execute() {
@@ -27,7 +32,6 @@ public class LongestSubsequence implements Executable{
     private List<Integer> inputValues() {
         System.out.println("Input a set of integer numbers: ");
         System.out.println("To finish entering numbers input any non-integer value.");
-        Scanner scan = new Scanner(System.in);
         List<Integer> setOfNumbers = new ArrayList<>();
         while (scan.hasNextInt()) {
             setOfNumbers.add(scan.nextInt());

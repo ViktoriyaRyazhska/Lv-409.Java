@@ -1,6 +1,11 @@
 import java.util.*;
 
 public class BucketSort implements Executable {
+    private Scanner scan;
+
+    public BucketSort(Scanner scan) {
+        this.scan = scan;
+    }
 
     @Override
     public void execute() {
@@ -21,7 +26,6 @@ public class BucketSort implements Executable {
     private int[] inputValues() {
         System.out.println("Input a set of integer numbers: ");
         System.out.println("To finish entering numbers input any non-integer value.");
-        Scanner scan = new Scanner(System.in);
         List<Integer> setOfNumbers = new ArrayList<>();
         while (scan.hasNextInt()) {
             setOfNumbers.add(scan.nextInt());
