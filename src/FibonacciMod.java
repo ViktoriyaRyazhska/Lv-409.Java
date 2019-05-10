@@ -16,6 +16,7 @@ public class FibonacciMod implements Executable {
     }
 
     private void input() throws InputMismatchException{
+        System.out.println("LOL");
         System.out.println("Enter number of fibonacci number:");
         while (true) {
             numberOfFib = in.nextInt();
