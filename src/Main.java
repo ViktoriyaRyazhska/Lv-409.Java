@@ -1,14 +1,20 @@
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * The main class for program start. This class contains the
+ * list of all classes and start chosen one.
+ *
+ * @author Andrii Vashchenok
+ */
 public class Main {
 
-    // Scanner for work in the main method
-    private static final Scanner sc = new Scanner(System.in);
+    private static final Scanner SCANNER = new Scanner(System.in);
 
-    // List of task classes
-    private static final ArrayList<Class <? extends Executable>> classList =
-            new ArrayList<Class <? extends Executable>>() {
+    private static final ArrayList<Class<? extends Executable>> CLASS_LIST =
+            new ArrayList<Class<? extends Executable>>() {
         {
             add(InsertionSort.class);
             add(CountingSort.class);
@@ -30,57 +36,44 @@ public class Main {
         }
     };
 
+    /**
+     * The main method for starting program and calling for chosen class.
+     *
+     * @param args Empty.
+     */
     public static void main(String[] args) {
 
         description();
 
-        // Main loop (one loop = one task OR error)
         while (true) {
 
             try {
 
-
-                // Parsing task number
                 System.out.println("Enter number of task (1-19) or 0 to exit: ");
-                int num = Integer.parseInt(sc.next());
+                int num = Integer.parseInt(SCANNER.next());
 
-                // Correct input for task number case
-                if (num > 0 && num <= classList.size()) {
+                if (num > 0 && num <= CLASS_LIST.size()) {
 
-                    // Executing chosen task
                     try {
 
-                        // Creating new instance for chosen task and calling execute() method
-                        classList.get(num-1).getConstructor(Scanner.class).
-                                newInstance(new Scanner(System.in)).execute();
-                    }
-
-                    // Inner task error
-                    catch (Exception e) {
+                        CLASS_LIST.get(num - 1).getConstructor(Scanner.class)
+                                .newInstance(new Scanner(System.in)).execute();
+                    } catch (Exception e) {
                         System.err.println("Task execution failed.");
                     }
 
-                }
+                } else if (num == 0) {
 
-                // Exit number case
-                else if (num == 0) {
-
-                    sc.close();
+                    SCANNER.close();
                     System.exit(0);
 
-                }
-
-                // Not existing task number case
-                else {
+                } else {
 
                     System.out.println("Invalid task number.");
 
                 }
 
-            }
-
-            // Not integer input
-            catch (NumberFormatException e) {
+            } catch (NumberFormatException e) {
                 System.err.println("Please, enter the number.");
             }
 
@@ -88,28 +81,31 @@ public class Main {
 
     }
 
+    /**
+     * Method for printing all tasks' full names.
+     */
     private static void description() {
 
         System.out.println(
-                "1.Insertion sort\n" +
-                "2.Counting sort\n" +
-                "3.Quick sort\n" +
-                "4.Bucket sort\n" +
-                "5.Merge sort\n" +
-                "6.Fibonacci\n" +
-                "7.Modification Fibonacci\n" +
-                "8.Interesting row\n" +
-                "9.Longest subsequence with difference one\n" +
-                "10.Ways to sum N using array elements with repetition\n" +
-                "11.Ways to write n as a sum of two or more positive integers\n" +
-                "12.Ways to cover in 3 steps\n" +
-                "13.Paths without crossing Virtual programming lab\n" +
-                "14.Work to be with High-effort or with Low-effort Virtual programming lab\n" +
-                "15.The longest palindromic subsequence\n" +
-                "16.Friend pairs\n" +
-                "17.Ways to tile the floor\n" +
-                "18.Painting the fence\n" +
-                "19.Optimized painting fence: use one variable instead of a table"
+                "1.Insertion sort\n"
+                        + "2.Counting sort\n"
+                        + "3.Quick sort\n"
+                        + "4.Bucket sort\n"
+                        + "5.Merge sort\n"
+                        + "6.Fibonacci\n"
+                        + "7.Modification Fibonacci\n"
+                        + "8.Interesting row\n"
+                        + "9.Longest subsequence with difference one\n"
+                        + "10.Ways to sum N using array elements with repetition\n"
+                        + "11.Ways to write n as a sum of two or more positive integers\n"
+                        + "12.Ways to cover in 3 steps\n"
+                        + "13.Paths without crossing Virtual programming lab\n"
+                        + "14.Work to be with High- or with Low-effort Virtual programming lab\n"
+                        + "15.The longest palindromic subsequence\n"
+                        + "16.Friend pairs\n"
+                        + "17.Ways to tile the floor\n"
+                        + "18.Painting the fence\n"
+                        + "19.Optimized painting fence: use one variable instead of a table"
         );
 
     }
