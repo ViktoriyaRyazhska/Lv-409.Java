@@ -1,8 +1,19 @@
 import java.util.Scanner;
 
+/**
+ * Functionality to find the Fibonacci number.
+ *
+ * <p>Provides functionality to find the the Fibonacci number by its sequence number
+ * that is written by a user in console
+ * @author Taras Hlukhovetskiy
+ */
 public class Fibonacci implements Executable {
     private Scanner in;
 
+    /**
+     * Constructor that sets Scanner.
+     * @param in Scanner to get the input from
+     */
     public Fibonacci(Scanner in) {
         this.in = in;
     }
@@ -21,11 +32,16 @@ public class Fibonacci implements Executable {
             System.out.println("The number can not be negative. Enter once more:");
         }
         //answer output
-        System.out.println(findFibNumber(numberOfFib));
+        System.out.println(findFibonacciNumber(numberOfFib));
     }
 
 
-    private int findFibNumber(int numberOfFib) {
+    /**
+     * Finds fibonacci number.
+     * @param numberOfFib sequence number for required Fibonacci number
+     * @return int Fibonacci number
+     */
+    private int findFibonacciNumber(int numberOfFib) {
         //checking whether we have already counted number
         if (numberOfFib == 1) {
             return 1;
