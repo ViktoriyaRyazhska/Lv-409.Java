@@ -9,7 +9,6 @@ import java.util.Scanner;
 public class PathWithoutCrossing implements Executable {
 
     // The number of points in the circle
-    private int pointNum;
     private Scanner scanner;
 
     /**
@@ -24,52 +23,49 @@ public class PathWithoutCrossing implements Executable {
     }
 
     /**
-     * Main method for executing class calculations.
-     *
-     * @throws InputMismatchException Exception can be thrown from inner method call input().
+     * Main method for getting input, calculating and output of result.
      */
     @Override
-    public void execute() throws InputMismatchException {
+    public void execute() {
 
-        input();
-
-        // Throw error if n is odd
-        if (pointNum < 1) {
-            System.err.println("Error: pointNum has to be 1 or more.");
-            return;
-        }
-
-        // Else return n/2'th
-        // Catalan number
-        output();
+        int calcArg = input() / 2;
+        output(calculate(calcArg));
 
     }
 
     /**
      * Method for getting input from user: the number of points in the circle.
      *
-     * @throws InputMismatchException Exception can be thrown in case not numeric input.
+     * @return Int - the number of points in the circle.
      */
-    public void input() throws InputMismatchException {
-
+    public int input() {
+        int pointNum;
         System.out.println("Enter the number of points in the circle: ");
+        String line;
         while (true) {
-            pointNum = scanner.nextInt();  //If number is positive program continue execution
-            if (pointNum > 0) {
-                break;
+            try {
+                line = scanner.nextLine();
+                pointNum = Integer.parseInt(line);
+                if (pointNum > 1) { //If number is positive program continue execution
+                    break;
+                }
+            } catch (NumberFormatException e) {
+                // Continue loop
             }
-            System.out.println("The number can not be negative. Enter once more:");
+            System.out.println("Incorrect number (number must be more than 1. Enter once more:");
         }
 
-
+        return pointNum;
     }
 
     /**
      * Method for printing execution result.
+     *
+     * @param numCrossing Execution result (number of ways to connect points).
      */
-    public void output() {
+    public void output(int numCrossing) {
 
-        System.out.println("Number of crossing paths: " + catalanDP(pointNum / 2));
+        System.out.println("Number of crossing paths: " + numCrossing);
 
     }
 
@@ -77,29 +73,22 @@ public class PathWithoutCrossing implements Executable {
      * Method for calculating the number of ways.
      *
      * @param innerPointNum The number of points divided by 2.
-     * @return The number of ways to connect point without crossing.
+     * @return The number of ways to connect point without crossing (last entry).
      */
-    private int catalanDP(int innerPointNum) {
+    int calculate(int innerPointNum) {
 
-        // Table to store
-        // results of subproblems
-        int []catalan = new int [innerPointNum + 1];
+        int []subproblemRes = new int [innerPointNum + 1];
 
-        // Initialize first
-        // two values in table
-        catalan[0] = catalan[1] = 1;
+        subproblemRes[0] = subproblemRes[1] = 1;
 
-        // Fill entries in catalan[]
-        // using recursive formula
         for (int i = 2; i <= innerPointNum; i++) {
-            catalan[i] = 0;
+            subproblemRes[i] = 0;
             for (int j = 0; j < i; j++) {
-                catalan[i] += catalan[j] * catalan[i - j - 1];
+                subproblemRes[i] += subproblemRes[j] * subproblemRes[i - j - 1];
             }
         }
 
-        // Return last entry
-        return catalan[innerPointNum];
+        return subproblemRes[innerPointNum];
 
     }
 

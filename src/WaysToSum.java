@@ -9,8 +9,6 @@ import java.util.Scanner;
  */
 public class WaysToSum implements Executable {
 
-    private int digitNum;
-    private int[] array;
     private Scanner scanner;
 
     /**
@@ -25,16 +23,82 @@ public class WaysToSum implements Executable {
     }
 
     /**
-     * Main method for executing class calculations.
-     *
-     * @throws InputMismatchException Exception can be thrown from inner method call input().
+     * Main method for getting input, calculation and outputing.
      */
     @Override
-    public void execute() throws InputMismatchException {
+    public void execute() {
 
+        int digit;
+        System.out.println("Enter number to be summed up: ");
+        String inputtedLine;
+        while (true) {
+            try {
+                inputtedLine = scanner.nextLine();
+                digit = Integer.parseInt(inputtedLine);
+                if (digit > 0) { //If number is positive program continue execution
+                    break;
+                }
+            } catch (NumberFormatException e) {
+                // Continue loop
+            }
+            System.out.println("Incorrect. Enter once more:");
+        }
+
+        output(calculate(digit, input()));
+
+    }
+
+    /**
+     * Method for printing execution result.
+     *
+     * @param num Number of ways (result of the execution).
+     */
+    public void output(int num) {
+
+        System.out.println("Required number of ways: " + num);
+
+    }
+
+    /**
+     * Method for getting input from user:
+     * array of digits number to be summed with.
+     *
+     * @return Integer array.
+     */
+    public int[] input() {
+
+        System.out.println("Input array of integers ( e.g.: 3 2 1 4 0 ):");
+
+        String inputtedLine = scanner.nextLine();
+        String[] inputtedWords = inputtedLine.split(" ");
+
+        int[] array = new int[inputtedWords.length];
+
+        try {
+
+            for (int i = 0; i < array.length; i++) {
+                array[i] = Integer.parseInt(inputtedWords[i]);
+            }
+
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input! Try again. ");
+            array = input();
+        }
+
+        return array;
+
+    }
+
+    /**
+     * Method for calculation the number of ways to sum
+     * digit.
+     *
+     * @param digitNum Digit which is summed up.
+     * @param array Array of integers which sum up digit.
+     * @return Integer - number of ways to sum up chosen digit.
+     */
+    int calculate(int digitNum, int[] array) {
         int[] count = new int[digitNum + 1];
-
-        input();
 
         // base case
         count[0] = 1;
@@ -53,55 +117,7 @@ public class WaysToSum implements Executable {
             }
         }
 
-        output(count[digitNum]);
-
-    }
-
-    /**
-     * Method for printing execution result.
-     *
-     * @param num Number of ways (result of the execution).
-     */
-    public void output(int num) {
-
-        // required number of ways
-        System.out.println("Required number of ways: " + num);
-
-    }
-
-    /**
-     * Method for getting input from user: number to be summed up,
-     * array of digits number to be summed with.
-     *
-     * @throws InputMismatchException Exception can be thrown in case not numeric input.
-     */
-    public void input() throws InputMismatchException {
-
-        System.out.println("Enter number to be summed up: ");
-
-        while (true) {
-            digitNum = scanner.nextInt(); //If number is positive program continue execution
-            if (digitNum > 0) {
-                break;
-            }
-            System.out.println("The number can not be negative. Enter once more:");
-        }
-
-        System.out.println("Enter number of digits in array: ");
-        int num;
-        while (true) {
-            num = scanner.nextInt();
-            if (num > 0) {
-                break;
-            }
-            System.out.println("The number can not be negative. Enter once more:");
-        }
-
-        array = new int[num];
-        for (int i = 0; i < num; i++) {
-            System.out.println("Enter next digit: ");
-            array[i] = scanner.nextInt();
-        }
+        return count[digitNum];
 
     }
 
