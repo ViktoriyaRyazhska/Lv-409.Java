@@ -32,12 +32,13 @@ public class Main {
 
     public static void main(String[] args) {
 
+        description();
+
         // Main loop (one loop = one task OR error)
         while (true) {
 
             try {
 
-                description();
 
                 // Parsing task number
                 System.out.println("Enter number of task (1-19) or 0 to exit: ");
