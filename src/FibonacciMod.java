@@ -12,10 +12,11 @@ public class FibonacciMod implements Executable {
     @Override
     public void execute() throws InputMismatchException {
         input();
-        System.out.println("The " + numberOfFib + " modification fibonacci number is " + findFibNumber());
+        System.out.println("The " + numberOfFib + " modification fibonacci number is "
+                + findFibNumber());
     }
 
-    private void input() throws InputMismatchException{
+    private void input() throws InputMismatchException {
         System.out.println("LOL");
         System.out.println("Enter number of fibonacci number:");
         while (true) {
@@ -28,7 +29,7 @@ public class FibonacciMod implements Executable {
         }
     }
 
-    private int findFibNumber(){
+    private int findFibNumber() {
         //If number is first - third number, wanted fibonacci number is 1
         if (numberOfFib == 1 || numberOfFib == 2 || numberOfFib == 3) {
             return 1;
