@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 /**
- * Sorting of int[] array by "Quick Sort" algorithm
+ * Sorting of int[] array by "Quick Sort" algorithm.
  * 
  * @author Rostyslav Hlynka
  */
@@ -11,14 +11,16 @@ public class QuickSort implements Executable {
     private Scanner sc;
 
     /**
-     * @param sc - input scanner
+     * Constuctor for QuickSort's class.
+     * 
+     * @param sc input scanner
      */
     public QuickSort(Scanner sc) {
         this.sc = sc;
     }
 
     /**
-     * Runs the task's implementation
+     * Runs the task's implementation.
      */
     @Override
     public void execute() {
@@ -28,11 +30,11 @@ public class QuickSort implements Executable {
     }
 
     /**
-     * Implementing "Quick Sort" algorithm
+     * Implementing "Quick Sort" algorithm.
      * 
-     * @param array - array that need to be sorted
-     * @param start - starting index
-     * @param end   - ending index
+     * @param array array that need to be sorted
+     * @param start starting index
+     * @param end   ending index
      */
     private void quickSort(int[] array, int start, int end) {
 
@@ -48,12 +50,12 @@ public class QuickSort implements Executable {
     }
 
     /**
-     * Takes last element as pivot and sorts: smaller elements than pivot --> to
-     * left of pivot greater elements than pivot --> to right of pivot
+     * Takes last element as pivot and sorts: smaller elements than pivot to left of
+     * pivot greater elements than pivot to right of pivot.
      * 
-     * @param array - array that need to be sorted
-     * @param start - starting index
-     * @param end   - ending index
+     * @param array array that need to be sorted
+     * @param start starting index
+     * @param end   ending index
      * @return index of pivot element at right position
      */
     private int getPivot(int[] array, int start, int end) {
@@ -76,7 +78,7 @@ public class QuickSort implements Executable {
     }
 
     /**
-     * Initialize int[] array (by user input), that need to be sorted
+     * Initialize int[] array (by user input), that need to be sorted.
      * 
      * @return array that need to be sorted
      */
@@ -104,9 +106,9 @@ public class QuickSort implements Executable {
     }
 
     /**
-     * Output sorted array
+     * Output sorted array.
      * 
-     * @param array - array that is sorted and need to be printed
+     * @param array array that is sorted and need to be printed
      */
     private void printArray(int[] array) {
 

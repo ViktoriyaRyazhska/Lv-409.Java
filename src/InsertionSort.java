@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 /**
- * Sorting of int[] array by "Insertion Sort" algorithm
+ * Sorting of int[] array by "Insertion Sort" algorithm.
  * 
  * @author Rostyslav Hlynka
  */
@@ -11,15 +11,16 @@ public class InsertionSort implements Executable {
     private Scanner sc;
 
     /**
-     * @param sc - input scanner
+     * Constuctor of InsertionSort's class.
+     * 
+     * @param sc input scanner
      */
     public InsertionSort(Scanner sc) {
         this.sc = sc;
     }
 
-
     /**
-     * Runs the task's implementation
+     * Runs the task's implementation.
      */
     @Override
     public void execute() {
@@ -29,9 +30,9 @@ public class InsertionSort implements Executable {
     }
 
     /**
-     * Implementing "Insertion Sort" algorithm
+     * Implementing "Insertion Sort" algorithm.
      * 
-     * @param array - array that need to be sorted
+     * @param array array that need to be sorted
      */
     private void insertionSort(int[] array) {
 
@@ -54,7 +55,7 @@ public class InsertionSort implements Executable {
     }
 
     /**
-     * Initialize int[] array (by user input), that need to be sorted
+     * Initialize int[] array (by user input), that need to be sorted.
      * 
      * @return array that need to be sorted
      */
@@ -82,9 +83,9 @@ public class InsertionSort implements Executable {
     }
 
     /**
-     * Output sorted array
+     * Output sorted array.
      * 
-     * @param array - array that is sorted and need to be printed
+     * @param array array that is sorted and need to be printed
      */
     private void printArray(int[] array) {
 
