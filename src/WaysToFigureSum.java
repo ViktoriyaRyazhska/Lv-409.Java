@@ -20,7 +20,7 @@ public class WaysToFigureSum implements Executable {
                 System.out.println("The number of partitions is: " + countWays(userNumber));
                 break;
             }
-            System.out.println("Sorry but Your number is not positive. Try again");
+            System.out.println("Sorry but Your number is not positive. Try");
         }
 
 
