@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class LongestSubsequence implements Executable{
+public class LongestSubsequence implements Executable {
     private Scanner scan;
 
     public LongestSubsequence(Scanner scan) {
