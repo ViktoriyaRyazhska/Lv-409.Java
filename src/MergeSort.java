@@ -42,28 +42,23 @@ public class MergeSort implements Executable {
 
     private int[] mergeSort(int[] array) {
         int lengthOfArray = array.length;
-        if (lengthOfArray < 2) return array;
+        if (lengthOfArray < 2) {
+            return array;
+        }
         int middle = lengthOfArray / 2;
         // divide array into small arrays and than merge + sort them
         return merge(mergeSort(Arrays.copyOfRange(array, 0, middle)),
-                mergeSort(Arrays.copyOfRange(array, middle, lengthOfArray)));
+            mergeSort(Arrays.copyOfRange(array, middle, lengthOfArray)));
     }
 
     private int[] merge(int[] firstArray, int[] secondArray) {
-        int lengthOfFirstArray;
-        lengthOfFirstArray = firstArray.length;
-        int lengthOfSecondArray;
-        lengthOfSecondArray = secondArray.length;
-        int indexOfFirstArray;
-        indexOfFirstArray = 0;
-        int indexOfSecondArray;
-        indexOfSecondArray = 0;
-        // length of new array
-        int fullLength;
-        fullLength = lengthOfFirstArray + lengthOfSecondArray;
+        int lengthOfFirstArray = firstArray.length;
+        int lengthOfSecondArray = secondArray.length;
+        int indexOfFirstArray = 0;
+        int indexOfSecondArray = 0;
+        int fullLength = lengthOfFirstArray + lengthOfSecondArray;
         // array that will be merged from first and second arrays
-        int[] resultArray;
-        resultArray = new int[fullLength];
+        int[] resultArray = new int[fullLength];
         // merging first and second array into one sorted array
         for (int i = 0; i < fullLength; i++) {
             if (indexOfFirstArray < lengthOfFirstArray && indexOfSecondArray < lengthOfSecondArray) {

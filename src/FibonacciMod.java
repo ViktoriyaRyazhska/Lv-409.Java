@@ -13,7 +13,7 @@ public class FibonacciMod implements Executable {
     public void execute() throws InputMismatchException {
         input();
         System.out.println("The " + numberOfFib + " modification fibonacci number is "
-                + findFibNumber());
+            + findFibNumber());
     }
 
     private void input() throws InputMismatchException {
@@ -31,15 +31,12 @@ public class FibonacciMod implements Executable {
 
     private int findFibNumber() {
         //If number is first - third number, wanted fibonacci number is 1
-        if (numberOfFib == 1 || numberOfFib == 2 || numberOfFib == 3) {
+        if (numberOfFib <= 3) {
             return 1;
         }
-        int firstNumber;
-        firstNumber = 1;
-        int secondNumber;
-        secondNumber = 1;
-        int thirdNumber;
-        thirdNumber = 1;
+        int firstNumber = 1;
+        int secondNumber = 1;
+        int thirdNumber = 1;
         int temp;
         //Find number that is under numberOfFib
         for (int i = 3; i < numberOfFib; i++) {

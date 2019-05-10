@@ -14,8 +14,8 @@ public class HighOrLowEffort implements Executable {
     @Override
     public void execute() throws InputMismatchException {
         input();
-        System.out.println("The maximum amount of cost you can perform within these" +
-                numberOfDays + "days is: " + findMaxAmountOfCost());
+        System.out.println("The maximum amount of cost you can perform within these"
+            + numberOfDays + "days is: " + findMaxAmountOfCost());
     }
 
     private void input() throws InputMismatchException {
