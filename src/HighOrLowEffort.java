@@ -3,9 +3,6 @@ import java.util.Scanner;
 
 public class HighOrLowEffort implements Executable {
     private Scanner in;
-    private int numberOfDays;
-    private int[] lowEffortArray;
-    private int[] highEffortArray;
 
     public HighOrLowEffort(Scanner in) {
         this.in = in;
@@ -13,13 +10,17 @@ public class HighOrLowEffort implements Executable {
 
     @Override
     public void execute() throws InputMismatchException {
-        input();
-        System.out.println("The maximum amount of cost you can perform within these"
-            + numberOfDays + "days is: " + findMaxAmountOfCost());
+        int numberOfDays = inputNumberOfDays();
+        System.out.println("Enter low effort tasks:");
+        int[] lowEffortTasks = fillEffortArray(numberOfDays);
+        System.out.println("Enter high effort tasks:");
+        int[] highEffortTasks = fillEffortArray(numberOfDays);
+        output(numberOfDays, findMaxAmountOfCost(numberOfDays, lowEffortTasks, highEffortTasks));
     }
 
-    private void input() throws InputMismatchException {
+    private int inputNumberOfDays() throws InputMismatchException {
         System.out.println("Enter number of days:");
+        int numberOfDays;
         while (true) {
             numberOfDays = in.nextInt();
             //If number is positive program continue execution
@@ -28,13 +29,15 @@ public class HighOrLowEffort implements Executable {
             }
             System.out.println("Number of days can not be negative. Enter once more:");
         }
-        System.out.println("Enter low effort tasks:");
-        lowEffortArray = fillEffortArray();
-        System.out.println("Enter high effort tasks:");
-        highEffortArray = fillEffortArray();
+        return numberOfDays;
     }
 
-    private int[] fillEffortArray() throws InputMismatchException {
+    private void output(int numberOfDays, int maxAmountOfCost) {
+        System.out.println("The maximum amount of cost you can perform within these"
+            + numberOfDays + "days is: " + maxAmountOfCost);
+    }
+
+    private int[] fillEffortArray(int numberOfDays) throws InputMismatchException {
         int[] array = new int[numberOfDays];
         for (int i = 0; i < numberOfDays; i++) {
             array[i] = in.nextInt();
@@ -42,18 +45,18 @@ public class HighOrLowEffort implements Executable {
         return array;
     }
 
-    private int findMaxAmountOfCost() {
+    private int findMaxAmountOfCost(int numberOfDays, int[] lowEffortTasks, int[] highEffortTasks) {
         // start from second day, because we will always take high for a first day
-        int maxAmountOfCost = highEffortArray[0];
-        int lastDayAmount = highEffortArray[0];
+        int maxAmountOfCost = highEffortTasks[0];
+        int lastDayAmount = highEffortTasks[0];
         // find maximum amount of cost
         for (int i = 1; i < numberOfDays; i++) {
             if (lastDayAmount == 0) {
-                maxAmountOfCost += highEffortArray[i];
-                lastDayAmount = highEffortArray[i];
+                maxAmountOfCost += highEffortTasks[i];
+                lastDayAmount = highEffortTasks[i];
             } else {
-                maxAmountOfCost += lowEffortArray[i];
-                lastDayAmount = lowEffortArray[i];
+                maxAmountOfCost += lowEffortTasks[i];
+                lastDayAmount = lowEffortTasks[i];
             }
         }
         return maxAmountOfCost;

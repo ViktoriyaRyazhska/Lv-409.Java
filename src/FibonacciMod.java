@@ -1,7 +1,6 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-
 public class FibonacciMod implements Executable {
     private Scanner in;
 
@@ -16,7 +15,7 @@ public class FibonacciMod implements Executable {
     }
 
     private int input() throws InputMismatchException {
-        System.out.println("Enter number of fibonacci number:");
+        System.out.println("Enter number of modification fibonacci number:");
         int numberOfFib;
         while (true) {
             numberOfFib = in.nextInt();
