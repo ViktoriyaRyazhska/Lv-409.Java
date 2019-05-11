@@ -35,7 +35,7 @@ public class WaysToCoverInThreeSteps implements Executable {
      * @param n given distance
      * @return amount of ways to cover the distance with 1, 2 and 3 steps
      */
-    private int countWays(int n) {
+    public int countWays(int n) {
 
         if (n < 0) {
             return 0;

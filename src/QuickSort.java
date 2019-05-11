@@ -36,7 +36,7 @@ public class QuickSort implements Executable {
      * @param start starting index
      * @param end   ending index
      */
-    private void quickSort(int[] array, int start, int end) {
+    public void quickSort(int[] array, int start, int end) {
 
         if (start < end) {
 
