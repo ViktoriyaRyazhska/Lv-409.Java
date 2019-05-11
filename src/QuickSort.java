@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -26,9 +27,9 @@ public class QuickSort implements Executable {
     public void execute() {
         int[] array = initArray();
         quickSort(array, 0, array.length - 1);
-        printArray(array);
+        System.out.println(Arrays.toString(array));
     }
-
+    
     /**
      * Implementing "Quick Sort" algorithm.
      * 
@@ -103,18 +104,6 @@ public class QuickSort implements Executable {
         }
 
         return array;
-    }
-
-    /**
-     * Output sorted array.
-     * 
-     * @param array array that is sorted and need to be printed
-     */
-    private void printArray(int[] array) {
-
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
-        }
     }
 
 }

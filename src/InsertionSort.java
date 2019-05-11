@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -26,7 +27,7 @@ public class InsertionSort implements Executable {
     public void execute() {
         int[] array = initArray();
         insertionSort(array);
-        printArray(array);
+        System.out.println(Arrays.toString(array));
     }
 
     /**
@@ -80,18 +81,6 @@ public class InsertionSort implements Executable {
         }
 
         return array;
-    }
-
-    /**
-     * Output sorted array.
-     * 
-     * @param array array that is sorted and need to be printed
-     */
-    private void printArray(int[] array) {
-
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
-        }
     }
 
 }
