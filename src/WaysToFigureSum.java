@@ -27,7 +27,7 @@ public class WaysToFigureSum implements Executable {
     @Override
     public void execute() throws InputMismatchException {
         int userNumber = input();
-        output(doAlgorithm(userNumber));
+        output(waysToSum(userNumber));
 
 
     }
@@ -74,7 +74,7 @@ public class WaysToFigureSum implements Executable {
      * @param param value entered by user and passed from output() method
      * @return maximum combinations of users's number partitions.
      */
-    public int doAlgorithm(int param) {
+    public int waysToSum(int param) {
 
         int[] count = new int[param + 1];
 
