@@ -33,7 +33,7 @@ public class InsertionSort implements Executable {
      * 
      * @param array - array that need to be sorted
      */
-    private void insertionSort(int[] array) {
+    public void insertionSort(int[] array) {
 
         for (int i = 1; i < array.length; ++i) {
 
