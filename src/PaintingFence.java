@@ -4,6 +4,8 @@ import java.util.Scanner;
 public class PaintingFence implements Executable{
 
     private Scanner in;
+    private int posts;
+    private int colors;
 
     public PaintingFence(Scanner in) {
         this.in = in;
