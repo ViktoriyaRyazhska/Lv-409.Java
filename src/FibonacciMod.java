@@ -1,9 +1,9 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+
 public class FibonacciMod implements Executable {
     private Scanner in;
-    private int numberOfFib;
 
     public FibonacciMod(Scanner in) {
         this.in = in;
@@ -11,25 +11,30 @@ public class FibonacciMod implements Executable {
 
     @Override
     public void execute() throws InputMismatchException {
-        input();
-        System.out.println("The " + numberOfFib + " modification fibonacci number is "
-            + findFibNumber());
+        int numberOfFib = input();
+        output(findFibNumber(numberOfFib));
     }
 
-    private void input() throws InputMismatchException {
-        System.out.println("LOL");
+    private int input() throws InputMismatchException {
         System.out.println("Enter number of fibonacci number:");
+        int numberOfFib;
         while (true) {
             numberOfFib = in.nextInt();
-            //If number is positive program continue execution
+            //If number is positive program continues execution
             if (numberOfFib > 0) {
                 break;
             }
             System.out.println("The number can not be negative. Enter once more:");
         }
+        return numberOfFib;
     }
 
-    private int findFibNumber() {
+    private void output(int numberOfFib) {
+        System.out.println("The modification fibonacci number is: "
+            + numberOfFib);
+    }
+
+    public int findFibNumber(int numberOfFib) {
         //If number is first - third number, wanted fibonacci number is 1
         if (numberOfFib <= 3) {
             return 1;
