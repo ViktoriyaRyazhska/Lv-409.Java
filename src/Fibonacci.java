@@ -5,7 +5,7 @@ import java.util.Scanner;
  *
  * <p>Provides functionality to find the the Fibonacci number by its sequence number
  * that is written by a user in console
- * @author Taras Hlukhovetskiy
+ * @author Taras Hlukhovetskyi
  */
 public class Fibonacci implements Executable {
     private Scanner in;
@@ -41,7 +41,7 @@ public class Fibonacci implements Executable {
      * @param numberOfFib sequence number for required Fibonacci number
      * @return int Fibonacci number
      */
-    private int findFibonacciNumber(int numberOfFib) {
+    public int findFibonacciNumber(int numberOfFib) {
         //checking whether we have already counted number
         if (numberOfFib == 1) {
             return 1;

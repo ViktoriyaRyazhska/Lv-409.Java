@@ -5,7 +5,7 @@ import java.util.Scanner;
  *
  * <p>Provides functionality to find the longest palindromic subsequence in a string
  * that is written by a user in console
- * @author Taras Hlukhovetskiy
+ * @author Taras Hlukhovetskyi
  */
 public class LongestPalindromicSubsequence implements Executable {
 
@@ -43,7 +43,7 @@ public class LongestPalindromicSubsequence implements Executable {
      * @param sequence string as a sequence
      * @return int length of the longest palindromic subsequence
      */
-    public static int findLongestPalindromicSubsequenceLength(String sequence) {
+    public int findLongestPalindromicSubsequenceLength(String sequence) {
         int n = sequence.length();
         if (n == 0) {
             return 0;
