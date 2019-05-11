@@ -45,7 +45,7 @@ public class HighOrLowEffort implements Executable {
         return array;
     }
 
-    private int findMaxAmountOfCost(int numberOfDays, int[] lowEffortTasks, int[] highEffortTasks) {
+    public int findMaxAmountOfCost(int numberOfDays, int[] lowEffortTasks, int[] highEffortTasks) {
         // start from second day, because we will always take high for a first day
         int maxAmountOfCost = highEffortTasks[0];
         int lastDayAmount = highEffortTasks[0];

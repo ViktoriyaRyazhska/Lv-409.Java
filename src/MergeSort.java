@@ -40,7 +40,7 @@ public class MergeSort implements Executable {
         return array;
     }
 
-    private int[] mergeSort(int[] array) {
+    public int[] mergeSort(int[] array) {
         int lengthOfArray = array.length;
         if (lengthOfArray < 2) {
             return array;
