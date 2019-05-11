@@ -11,8 +11,10 @@ public class FibonacciTest {
 
     @Test
     public void findFibonacciNumber() {
+        assertEquals(-1, task.findFibonacciNumber(-8));
+        assertEquals(-1, task.findFibonacciNumber(0));
         assertEquals(1, task.findFibonacciNumber(1));
-        assertEquals(3, task.findFibonacciNumber(3));
-        assertEquals(1, task.findFibonacciNumber(-8));
+        assertEquals(13, task.findFibonacciNumber(6));
     }
+
 }
