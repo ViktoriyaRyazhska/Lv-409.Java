@@ -11,6 +11,7 @@ public class Main {
 
     private static final Scanner SCANNER = new Scanner(System.in);
 
+
     private static final ArrayList<Class<? extends Executable>> CLASS_LIST =
             new ArrayList<Class<? extends Executable>>() {
         {
@@ -40,6 +41,7 @@ public class Main {
      * @param args Empty.
      */
     public static void main(String[] args) {
+
 
         description();
 
