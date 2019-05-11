@@ -7,28 +7,28 @@ public class Main {
     private static final Scanner sc = new Scanner(System.in);
 
     // List of task classes
-    private static final ArrayList<Class <? extends Executable>> classList =
-            new ArrayList<Class <? extends Executable>>() {
-        {
-            add(InsertionSort.class);
-            add(CountingSort.class);
-            add(QuickSort.class);
-            add(BucketSort.class);
-            add(MergeSort.class);
-            add(Fibonacci.class);
-            add(FibonacciMod.class);
-            add(LongestSubsequence.class);
-            add(WaysToSum.class);
-            add(WaysToFigureSum.class);
-            add(WaysToCoverInThreeSteps.class);
-            add(PathWithoutCrossing.class);
-            add(HighOrLowEffort.class);
-            add(LongestPalindromicSubsequence.class);
-            add(FriendPairs.class);
-            add(PaintingFence.class);
-            add(OptimizedPaintingFence.class);
-        }
-    };
+    private static final ArrayList<Class<? extends Executable>> classList =
+        new ArrayList<Class<? extends Executable>>() {
+            {
+                add(InsertionSort.class);
+                add(CountingSort.class);
+                add(QuickSort.class);
+                add(BucketSort.class);
+                add(MergeSort.class);
+                add(Fibonacci.class);
+                add(FibonacciMod.class);
+                add(LongestSubsequence.class);
+                add(WaysToSum.class);
+                add(WaysToFigureSum.class);
+                add(WaysToCoverInThreeSteps.class);
+                add(PathWithoutCrossing.class);
+                add(HighOrLowEffort.class);
+                add(LongestPalindromicSubsequence.class);
+                add(FriendPairs.class);
+                add(PaintingFence.class);
+                add(OptimizedPaintingFence.class);
+            }
+        };
 
     public static void main(String[] args) {
 
@@ -51,8 +51,8 @@ public class Main {
                     try {
 
                         // Creating new instance for chosen task and calling execute() method
-                        classList.get(num-1).getConstructor(Scanner.class).
-                                newInstance(new Scanner(System.in)).execute();
+                        classList.get(num - 1).getConstructor(Scanner.class).
+                            newInstance(new Scanner(System.in)).execute();
                     }
 
                     // Inner task error
@@ -91,10 +91,9 @@ public class Main {
     private static void description() {
 
         System.out.println(
-                "1.Insertion sort\n" +
+            "1.Insertion sort\n" +
                 "2.Counting sort\n" +
-                "3.Quick sort\n" +
-                "4.Bucket sort\n" +
+                "3.Quick sort\n" + "4.Bucket sort\n" +
                 "5.Merge sort\n" +
                 "6.Fibonacci\n" +
                 "7.Modification Fibonacci\n" +

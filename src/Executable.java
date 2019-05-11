@@ -1,4 +1,4 @@
-public interface Executable{
+public interface Executable {
 
     void execute();
 
