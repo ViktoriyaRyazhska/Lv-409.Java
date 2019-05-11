@@ -22,7 +22,7 @@ public class WaysToFigureSum implements Executable {
      * Method inherited from Executable interface.
      * put together other methods
      *
-     * @throws InputMismatchException if Scanner nextInt() in method input() returned value isn't a number.
+     * @throws InputMismatchException if  in method input() returned value isn't a number.
      */
     @Override
     public void execute() throws InputMismatchException {
@@ -36,7 +36,7 @@ public class WaysToFigureSum implements Executable {
      * Method is scanning console to get number from user.
      *
      * @return number entered by user
-     * @throws InputMismatchException if entered value is not a number
+     * @throws InputMismatchException if Scanner nextInt() returned value is not a number
      */
     public int input() throws InputMismatchException {
         System.out.println("Please enter the positive number to get all its possible partitions");
