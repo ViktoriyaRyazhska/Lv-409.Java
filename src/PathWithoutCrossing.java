@@ -77,6 +77,10 @@ public class PathWithoutCrossing implements Executable {
      */
     int calculate(int innerPointNum) {
 
+        if (innerPointNum < 2) {
+            return 0;
+        }
+
         int []subproblemRes = new int [innerPointNum + 1];
 
         subproblemRes[0] = subproblemRes[1] = 1;

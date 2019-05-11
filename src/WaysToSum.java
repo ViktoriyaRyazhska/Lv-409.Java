@@ -98,22 +98,27 @@ public class WaysToSum implements Executable {
      * @return Integer - number of ways to sum up chosen digit.
      */
     int calculate(int digitNum, int[] array) {
+
+        if(digitNum < 1) {
+            return 0;
+        }
+        for(int i : array) {
+            if (i < 1) {
+                return 0;
+            }
+        }
+
         int[] count = new int[digitNum + 1];
 
-        // base case
         count[0] = 1;
 
-        // count ways for all values up
-        // to 'digitNum' and store the result
         for (int i = 1; i <= digitNum; i++) {
             for (int j = 0; j < array.length; j++) {
 
-                // if i >= arr[j] then
-                // accumulate count for value 'i' as
-                // ways to form value 'i-arr[j]'
                 if (i >= array[j]) {
                     count[i] += count[i - array[j]];
                 }
+
             }
         }
 
