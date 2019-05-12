@@ -2,9 +2,6 @@ import static org.junit.Assert.*;
 import java.util.Scanner;
 import org.junit.*;
 
-/**
- * @author Rostyslav Hlynka
- */
 public class PathWithoutCrossingTest {
 
     private PathWithoutCrossing pathWithoutCrossing;
