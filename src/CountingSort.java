@@ -1,22 +1,44 @@
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Class for sorting int[] array using Counting Sort algorithm.
+ *
+ * @author Volodymyr Oseredchuk
+ */
 public class CountingSort implements Executable {
     private Scanner in;
 
-    public CountingSort(Scanner in) {
-        this.in = in;
+    /**
+     * Constructor for class CountingSort.
+     *
+     * @param sc Scanner scanner object for console input
+     */
+    public CountingSort(Scanner sc) {
+        this.in = sc;
     }
 
+    /**
+     * Method for executing algorithm - includes input and output.
+     *
+     * @throws InputMismatchException if input type is not compatible with int
+     */
     @Override
-    public void execute() {
+    public void execute() throws InputMismatchException {
         int[] array = input();
         System.out.println(Arrays.toString(array)); // output unsorted array
         countingSort(array);
         System.out.println(Arrays.toString(array)); // output sorted array
     }
 
-    private int[] input() {
+    /**
+     * Method for getting int[] array from user.
+     *
+     * @return array int[] array that needs to be sorted
+     * @throws InputMismatchException if input type is not compatible with int
+     */
+    public int[] input() throws InputMismatchException {
         int arrayLength;
         int[] array;
         // input array length
@@ -38,11 +60,14 @@ public class CountingSort implements Executable {
         return array;
     }
 
-    private void countingSort(int[] arr) {
-        int min;
-        int max;
-        min = arr[0];
-        max = arr[0];
+    /**
+     * Method for Counting Sort algorithm.
+     *
+     * @param arr int[] array that needs to be sorted
+     */
+    public void countingSort(int[] arr) {
+        int min = arr[0];
+        int max = arr[0];
         // search for min and max elements
         for (int i = 1; i < arr.length; i++) {
             if (arr[i] > max) {
@@ -51,7 +76,10 @@ public class CountingSort implements Executable {
                 min = arr[i];
             }
         }
-        // element corresponds to quantity of entries, (index of element + min) corresponds to value
+        /*
+         * element corresponds to quantity of entries
+         * (index of element + min) corresponds to value
+         */
         int[] counts = new int[max - min + 1];
         // count quantity of each element entry in array
         for (int el : arr) {
