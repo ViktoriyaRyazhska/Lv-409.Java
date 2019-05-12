@@ -28,7 +28,7 @@ public class PathWithoutCrossing implements Executable {
     @Override
     public void execute() {
 
-        int calcArg = input() / 2;
+        int calcArg = input();
         output(calculate(calcArg));
 
     }
@@ -76,6 +76,8 @@ public class PathWithoutCrossing implements Executable {
      * @return The number of ways to connect point without crossing (last entry).
      */
     int calculate(int innerPointNum) {
+
+        innerPointNum = innerPointNum/2;
 
         if (innerPointNum < 2) {
             return 0;
