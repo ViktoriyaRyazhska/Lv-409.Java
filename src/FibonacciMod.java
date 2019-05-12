@@ -1,41 +1,74 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Class for finding which is the member of some position in Modification Fibonacci sequence.
+ *
+ * @author Danylo Lototskyi
+ */
 public class FibonacciMod implements Executable {
-    private Scanner in;
+    private Scanner scanner;
 
-    public FibonacciMod(Scanner in) {
-        this.in = in;
+    /**
+     * Constructor for class FibonacciMod.
+     *
+     * @param scanner Scanner for input in the class.
+     */
+    public FibonacciMod(Scanner scanner) {
+        this.scanner = scanner;
     }
 
+    /**
+     * Main method for getting input and output.
+     *
+     * @throws InputMismatchException if user enter not integer value in input().
+     */
     @Override
     public void execute() throws InputMismatchException {
-        int numberOfFib = input();
-        output(findFibNumber(numberOfFib));
+        int numberToFindFib = input();
+        output(findFibNumber(numberToFindFib));
     }
 
+    /**
+     * Method for getting input of number of position in
+     * Modification Fibonacci sequence.
+     *
+     * @return number of position in Modification Fibonacci sequence.
+     * @throws InputMismatchException if user enters not integer value.
+     */
     private int input() throws InputMismatchException {
         System.out.println("Enter number of modification fibonacci number:");
-        int numberOfFib;
+        int numberToFindFib;
         while (true) {
-            numberOfFib = in.nextInt();
+            numberToFindFib = scanner.nextInt();
             //If number is positive program continues execution
-            if (numberOfFib > 0) {
+            if (numberToFindFib > 0) {
                 break;
             }
             System.out.println("The number can not be negative. Enter once more:");
         }
-        return numberOfFib;
+        return numberToFindFib;
     }
 
+    /**
+     * Method for printing execution result.
+     *
+     * @param numberOfFib
+     */
     private void output(int numberOfFib) {
         System.out.println("The modification fibonacci number is: "
             + numberOfFib);
     }
 
-    public int findFibNumber(int numberOfFib) {
+    /**
+     * Method for finding number from Modification Fibonacci sequence under the given number.
+     *
+     * @param numberToFindFib number of position in Modification Fibonacci sequence.
+     * @return number from Modification Fibonacci sequence under numberToFindFib.
+     */
+    public int findFibNumber(int numberToFindFib) {
         //If number is first - third number, wanted fibonacci number is 1
-        if (numberOfFib <= 3) {
+        if (numberToFindFib <= 3) {
             return 1;
         }
         int firstNumber = 1;
@@ -43,7 +76,7 @@ public class FibonacciMod implements Executable {
         int thirdNumber = 1;
         int temp;
         //Find number that is under numberOfFib
-        for (int i = 3; i < numberOfFib; i++) {
+        for (int i = 3; i < numberToFindFib; i++) {
             temp = firstNumber + thirdNumber;
             assert (temp > 0);
             firstNumber = secondNumber;
