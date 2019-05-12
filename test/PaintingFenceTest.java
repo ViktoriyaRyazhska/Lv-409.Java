@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 
 public class PaintingFenceTest {
 
-    PaintingFence test;
+    private PaintingFence test;
 
     @Before
     public void setUp() throws Exception {
