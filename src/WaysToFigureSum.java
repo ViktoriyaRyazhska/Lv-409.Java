@@ -6,7 +6,6 @@ import java.util.Scanner;
  *
  * @author Olena Andrushchenko
  */
-
 public class WaysToFigureSum implements Executable {
 
     private Scanner in;
