@@ -1,3 +1,4 @@
+import java.security.InvalidParameterException;
 import java.util.Scanner;
 
 /**
@@ -11,7 +12,10 @@ import java.util.Scanner;
  */
 public class FriendPairs implements Executable {
     private Scanner in;
-
+    /**
+     * Maximum friends quantity to algorithm run successfully due to int overflow.
+     */
+    private static final int MAX_FRIENDS = 17;
 
     /**
      * Constructor that sets Scanner.
@@ -35,7 +39,13 @@ public class FriendPairs implements Executable {
             System.out.println("The number can not be negative. Enter once more:");
         }
         // answer output
-        System.out.println("Ways to pair: " + findWaysOfPairing(numberOfFriends));
+        int answer = findWaysOfPairing(numberOfFriends);
+        if (answer == -1) {
+            System.out.println("Cant calculate because of int size restrictions");
+        } else {
+            System.out.println("Ways to pair: " + answer);
+        }
+
     }
 
     /**
@@ -46,16 +56,22 @@ public class FriendPairs implements Executable {
      * to the current subtask using answers of previous subtasks until we get to the main
      * task answer.
      * @param numberOfFriends int number
-     * @return int possible number of ways
+     * @return int possible number of ways if successful, -1 if int overflow happens
      */
     public int findWaysOfPairing(int numberOfFriends) {
-        // for number of friends less or equal 2 number of ways equals to numberOfFriends
-        if (numberOfFriends <= 2) {
-            return numberOfFriends;
-        }
         int firstNumber = 1;
         int secondNumber = 2;
         int temp;
+        // for number of friends less or equal 2 number of ways equals to numberOfFriends
+        if (numberOfFriends <= 0) {
+            throw new InvalidParameterException("Number of friends can't be negative!");
+        }
+        if (numberOfFriends <= 2) {
+            return numberOfFriends;
+        }
+        if (numberOfFriends > MAX_FRIENDS){
+            return -1;
+        }
 
         for (int i = 3; i <= numberOfFriends; i++) {
             temp = (i - 1) * firstNumber + secondNumber;
