@@ -10,12 +10,13 @@ public class MergeSort implements Executable {
 
     @Override
     public void execute() {
-        int[] array;
-        array = input();
-        // output unsorted array
+        int[] array = input();
+        output(array);
+        output(mergeSort(array));
+    }
+
+    private void output(int[] array) {
         System.out.println(Arrays.toString(array));
-        // output sorted array
-        System.out.println(Arrays.toString(mergeSort(array)));
     }
 
     private int[] input() {
@@ -31,7 +32,6 @@ public class MergeSort implements Executable {
             System.out.println("The array length should be positive. Enter once more:");
         }
         int[] array;
-        // allocate memory for array and input it
         array = new int[arrayLength];
         System.out.println("Enter " + arrayLength + " integer elements of the array:");
         for (int i = 0; i < arrayLength; i++) {
@@ -46,10 +46,12 @@ public class MergeSort implements Executable {
             return array;
         }
         int middle = lengthOfArray / 2;
+        printPartsOfArray(array, middle, lengthOfArray);
         // divide array into small arrays and than merge + sort them
         return merge(mergeSort(Arrays.copyOfRange(array, 0, middle)),
             mergeSort(Arrays.copyOfRange(array, middle, lengthOfArray)));
     }
+
 
     private int[] merge(int[] firstArray, int[] secondArray) {
         int lengthOfFirstArray = firstArray.length;
@@ -76,5 +78,17 @@ public class MergeSort implements Executable {
         }
         // return merged and sorted array
         return resultArray;
+    }
+
+    private void printPartsOfArray(int[] array, int middle, int lengthOfArray) {
+        System.out.print("Left:[");
+        for (int i = 0; i < middle; i++) {
+            System.out.print(array[i] + " ");
+        }
+        System.out.print("\b] Right:[");
+        for (int i = middle; i < lengthOfArray; i++) {
+            System.out.print(array[i] + " ");
+        }
+        System.out.println("\b]");
     }
 }
