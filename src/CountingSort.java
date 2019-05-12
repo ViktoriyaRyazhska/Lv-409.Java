@@ -66,6 +66,9 @@ public class CountingSort implements Executable {
      * @param arr int[] array that needs to be sorted
      */
     public void countingSort(int[] arr) {
+        if ((null == arr) || (arr.length < 2)) {
+            return;
+        }
         int min = arr[0];
         int max = arr[0];
         // search for min and max elements

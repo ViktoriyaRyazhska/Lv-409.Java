@@ -64,6 +64,9 @@ public class OptimizedPaintingFence implements Executable {
         /*
          * Rule: at most 2 adjacent posts have the same color.
          */
+        if ((postsCount < 1) || (colorsCount < 1)) {
+            return 0;
+        }
         // there are colorsCount ways to color the first post
         long waysToColor = colorsCount;
         /*
