@@ -1,6 +1,5 @@
 import org.junit.Test;
 
-import java.io.ByteArrayInputStream;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -16,14 +15,12 @@ public class InsertionSortTest {
 
     @Test
     public void insertionSortTest() {
-        String input = "9 8 7 6 9 6";
-        ByteArrayInputStream bainput = new ByteArrayInputStream(input.getBytes());
-        System.setIn(bainput);
-        Scanner scanner = new Scanner(bainput);
-        InsertionSort sort = new InsertionSort(scanner);
-        int[] userArray = sort.initArray();
-        sort.insertionSort(userArray);
-        assertEquals("[6, 6, 7, 8, 9, 9]", Arrays.toString(userArray));
+
+        InsertionSort sort = new InsertionSort(new Scanner(System.in));
+        int[] actual = {9, 8, 7, 6, 9, 6};
+        int[] expected = {6, 6, 7, 8, 9, 9};
+        sort.insertionSort(actual);
+        assertEquals(Arrays.toString(expected), Arrays.toString(actual));
 
     }
 
