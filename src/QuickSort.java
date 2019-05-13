@@ -9,22 +9,12 @@ import java.util.Scanner;
 
 public class QuickSort implements Executable {
 
-    private Scanner sc;
-
-    /**
-     * Constuctor for QuickSort's class.
-     * 
-     * @param sc input scanner
-     */
-    public QuickSort(Scanner sc) {
-        this.sc = sc;
-    }
-
     /**
      * Runs the task's implementation.
      */
     @Override
     public void execute() {
+        
         int[] array = initArray();
         quickSort(array, 0, array.length - 1);
         System.out.println(Arrays.toString(array));
@@ -85,25 +75,33 @@ public class QuickSort implements Executable {
      */
     private int[] initArray() {
 
-        System.out.println("Input array of integers, int[] ( e.g.: 3 2 1 4 0 ):");
+        Scanner sc = new Scanner(System.in);
 
-        String inputtedLine = sc.nextLine();
-        String[] inputtedWords = inputtedLine.split(" ");
+        int arrayLength;
 
-        int[] array = new int[inputtedWords.length];
+        System.out.println("Enter number of elements in array:");
 
-        try {
-
-            for (int i = 0; i < array.length; i++) {
-                array[i] = Integer.parseInt(inputtedWords[i]);
+        while (true) {
+            
+            arrayLength = sc.nextInt();
+            // if valid length of array - breaks from loop and continue execution
+            if (arrayLength > 0) {
+                break;
             }
-
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid input! Try again. ");
-            array = initArray();
+            
+            System.out.println("The array length should be positive. Enter once more:");
+        }
+        
+        int[] array = new int[arrayLength];
+        
+        System.out.println("Enter " + arrayLength + " integer elements of the array:");
+        
+        for (int i = 0; i < arrayLength; i++) {
+            array[i] = sc.nextInt();
         }
 
         return array;
+        
     }
 
 }

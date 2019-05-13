@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 
 public class FibonacciModTest {
 
-    private FibonacciMod findFibNumber = new FibonacciMod(new Scanner(System.in));
+    private FibonacciMod findFibNumber = new FibonacciMod();
     /**
      * Validates {@link FibonacciMod#findFibNumber(int)} method.
      * Expected result: Elements should be equal.
