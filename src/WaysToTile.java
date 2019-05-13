@@ -33,7 +33,7 @@ public class WaysToTile implements Executable {
                 break;
             }
             System.out.println("Vertical and horizontal quantity of tiles should be positive. "
-                    + "Try again:");
+                + "Try again:");
         }
 
     }
@@ -59,7 +59,7 @@ public class WaysToTile implements Executable {
      * @return Number of ways to tile the floor.
      */
     public int countNumberOfWays(int n, int m) throws InvalidParameterException {
-        if(n < 1 || m < 2) {
+        if (n < 1 || m < 2) {
             throw new InvalidParameterException();
         }
 
