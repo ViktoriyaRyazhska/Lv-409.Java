@@ -7,16 +7,6 @@ import java.util.Scanner;
  * @author Danylo Lototskyi
  */
 public class FibonacciMod implements Executable {
-    private Scanner scanner;
-
-    /**
-     * Constructor for class FibonacciMod.
-     *
-     * @param scanner Scanner for input in the class.
-     */
-    public FibonacciMod(Scanner scanner) {
-        this.scanner = scanner;
-    }
 
     /**
      * Main method for getting input and output.
@@ -26,7 +16,8 @@ public class FibonacciMod implements Executable {
     @Override
     public void execute() throws InputMismatchException {
         int numberToFindFib = input();
-        output(findFibNumber(numberToFindFib));
+        System.out.println("The modification fibonacci number is: "
+            + findFibNumber(numberToFindFib));
     }
 
     /**
@@ -37,6 +28,7 @@ public class FibonacciMod implements Executable {
      * @throws InputMismatchException if user enters not integer value.
      */
     private int input() throws InputMismatchException {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Enter number of modification fibonacci number:");
         int numberToFindFib;
         while (true) {
@@ -47,17 +39,8 @@ public class FibonacciMod implements Executable {
             }
             System.out.println("The number can not be negative. Enter once more:");
         }
+        scanner.close();
         return numberToFindFib;
-    }
-
-    /**
-     * Method for printing execution result.
-     *
-     * @param numberOfFib
-     */
-    private void output(int numberOfFib) {
-        System.out.println("The modification fibonacci number is: "
-            + numberOfFib);
     }
 
     /**

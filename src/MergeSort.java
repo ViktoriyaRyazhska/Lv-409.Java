@@ -8,16 +8,6 @@ import java.util.Scanner;
  * @author Danylo Lototskyi
  */
 public class MergeSort implements Executable {
-    private Scanner scanner;
-
-    /**
-     * Constructor for class MergeSort.
-     *
-     * @param scanner Scanner for input in the class.
-     */
-    public MergeSort(Scanner scanner) {
-        this.scanner = scanner;
-    }
 
     /**
      * Main method for getting input and output.
@@ -27,14 +17,9 @@ public class MergeSort implements Executable {
     @Override
     public void execute() throws InputMismatchException {
         int[] arrayForSorting = input();
-        output(arrayForSorting);
-        output(mergeSort(arrayForSorting));
-    }
-
-    private void output(int[] arrayForSorting) {
         System.out.println(Arrays.toString(arrayForSorting));
+        System.out.println(Arrays.toString(mergeSort(arrayForSorting)));
     }
-
     /**
      * Method for getting input of number of elements in array and this array.
      *
@@ -42,6 +27,7 @@ public class MergeSort implements Executable {
      * @throws InputMismatchException if user enters not integer value.
      */
     private int[] input() throws InputMismatchException {
+        Scanner scanner = new Scanner(System.in);
         int arrayLength;
         // input array length
         System.out.println("Enter number of elements in array:");
@@ -59,6 +45,7 @@ public class MergeSort implements Executable {
         for (int i = 0; i < arrayLength; i++) {
             arrayForSorting[i] = scanner.nextInt();
         }
+        scanner.close();
         return arrayForSorting;
     }
 
@@ -83,7 +70,7 @@ public class MergeSort implements Executable {
     /**
      * Method for merging two arrays into one sorted array.
      *
-     * @param leftArray left part of array.
+     * @param leftArray  left part of array.
      * @param rightArray right part of array.
      * @return sorted array.
      */
@@ -118,8 +105,8 @@ public class MergeSort implements Executable {
     /**
      * Method for printing left and right parts of array.
      *
-     * @param array array for printing.
-     * @param middle middle index of array.
+     * @param array         array for printing.
+     * @param middle        middle index of array.
      * @param lengthOfArray length of current array.
      */
     private void printPartsOfArray(int[] array, int middle, int lengthOfArray) {

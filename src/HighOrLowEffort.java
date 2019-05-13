@@ -8,16 +8,6 @@ import java.util.Scanner;
  * @author Danylo Lototskyi
  */
 public class HighOrLowEffort implements Executable {
-    private Scanner scanner;
-
-    /**
-     * Constructor for class HighOrLowEffort.
-     *
-     * @param scanner Scanner for input in the class.
-     */
-    public HighOrLowEffort(Scanner scanner) {
-        this.scanner = scanner;
-    }
 
     /**
      * Main method for getting input and output.
@@ -26,12 +16,16 @@ public class HighOrLowEffort implements Executable {
      */
     @Override
     public void execute() throws InputMismatchException {
-        int numberOfDays = inputNumberOfDays();
+        Scanner scanner = new Scanner(System.in);
+        int numberOfDays = inputNumberOfDays(scanner);
         System.out.println("Enter low effort tasks:");
-        int[] lowEffortTasks = fillEffortArray(numberOfDays);
+        int[] lowEffortTasks = fillEffortArray(scanner, numberOfDays);
         System.out.println("Enter high effort tasks:");
-        int[] highEffortTasks = fillEffortArray(numberOfDays);
-        output(numberOfDays, findMaxAmountOfCost(numberOfDays, lowEffortTasks, highEffortTasks));
+        int[] highEffortTasks = fillEffortArray(scanner, numberOfDays);
+        System.out.println("The maximum amount of cost you can perform within these"
+            + numberOfDays + "days is: "
+            + findMaxAmountOfCost(numberOfDays, lowEffortTasks, highEffortTasks));
+        scanner.close();
     }
 
     /**
@@ -40,7 +34,7 @@ public class HighOrLowEffort implements Executable {
      * @return number of days to perform tasks.
      * @throws InputMismatchException if user enters not integer value.
      */
-    private int inputNumberOfDays() throws InputMismatchException {
+    private int inputNumberOfDays(Scanner scanner) throws InputMismatchException {
         System.out.println("Enter number of days:");
         int numberOfDays;
         while (true) {
@@ -55,24 +49,13 @@ public class HighOrLowEffort implements Executable {
     }
 
     /**
-     * Method for printing execution result.
-     *
-     * @param numberOfDays number of days to perform tasks.
-     * @param maxAmountOfCost maximum amount of cost that can be performed within numberOfDays days.
-     */
-    private void output(int numberOfDays, int maxAmountOfCost) {
-        System.out.println("The maximum amount of cost you can perform within these"
-            + numberOfDays + "days is: " + maxAmountOfCost);
-    }
-
-    /**
      * Method for getting input of array of costs.
      *
      * @param numberOfDays number of days to perform tasks.
      * @return array filled with costs of tasks.
      * @throws InputMismatchException if user enters not integer value.
      */
-    private int[] fillEffortArray(int numberOfDays) throws InputMismatchException {
+    private int[] fillEffortArray(Scanner scanner, int numberOfDays) throws InputMismatchException {
         int[] array = new int[numberOfDays];
         for (int i = 0; i < numberOfDays; i++) {
             array[i] = scanner.nextInt();
@@ -84,8 +67,8 @@ public class HighOrLowEffort implements Executable {
      * Method for calculating maximum amount of cost that can be performed
      * within numberOfDays days.
      *
-     * @param numberOfDays number of days to perform tasks.
-     * @param lowEffortTasks array of costs of low-effort tasks.
+     * @param numberOfDays    number of days to perform tasks.
+     * @param lowEffortTasks  array of costs of low-effort tasks.
      * @param highEffortTasks array of costs of high-effort tasks.
      * @return maximum amount of cost that can be performed within numberOfDays days.
      */
