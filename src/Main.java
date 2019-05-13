@@ -21,6 +21,7 @@ public class Main {
             add(MergeSort.class);
             add(Fibonacci.class);
             add(FibonacciMod.class);
+            add(InterestingRow.class);
             add(LongestSubsequence.class);
             add(WaysToSum.class);
             add(WaysToFigureSum.class);
