@@ -48,7 +48,10 @@ public class LongestSubsequence implements Executable {
      *
      * @param setOfNumbers the array of numbers.
      */
-    private int output(int[] setOfNumbers) {
+    public int output(int[] setOfNumbers) {
+        if (null == setOfNumbers) {
+            return -1;
+        }
         int counter = 1;
         int maxSequenceLength = 1;
         for (int i = 0; i < setOfNumbers.length - 1; i++) {
