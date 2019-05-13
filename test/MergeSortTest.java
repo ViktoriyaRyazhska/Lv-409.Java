@@ -9,7 +9,7 @@ import static org.junit.Assert.assertArrayEquals;
  */
 public class MergeSortTest {
 
-    private MergeSort mergeSort = new MergeSort(new Scanner(System.in));
+    private MergeSort mergeSort = new MergeSort();
 
     /**
      * Validates {@link MergeSort#mergeSort(int[])} method.

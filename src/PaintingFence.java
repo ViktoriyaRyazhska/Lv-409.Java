@@ -61,26 +61,20 @@ public class PaintingFence implements Executable {
      * @return total amount of color combinations
      */
     public int paintFence(int post, int color) {
-
         if (post == 0) {
             return 0;
         }
-
         if (post == 1) {
             return color;
         }
-
         int same = color;
         int diff = color * (color - 1);
-
         for (int i = 3; i <= post; i++) {
             int prevDiff = diff;
             diff = (same + diff) * (color - 1); //as stated above
-
             //color the third in another color
             same = prevDiff;
         }
-
         return same + diff;
     }
 
