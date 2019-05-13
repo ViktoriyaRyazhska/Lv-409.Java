@@ -1,5 +1,7 @@
 import static org.junit.Assert.*;
+
 import java.util.Scanner;
+
 import org.junit.*;
 
 public class PathWithoutCrossingTest {
@@ -8,7 +10,7 @@ public class PathWithoutCrossingTest {
 
     @Before
     public void init() {
-        pathWithoutCrossing = new PathWithoutCrossing(new Scanner(System.in));
+        pathWithoutCrossing = new PathWithoutCrossing();
     }
 
     @After

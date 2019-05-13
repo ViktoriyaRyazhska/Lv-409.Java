@@ -1,85 +1,124 @@
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Class for sorting array using "Merge Sort" algorithm.
+ *
+ * @author Danylo Lototskyi
+ */
 public class MergeSort implements Executable {
-    private Scanner in;
 
-    public MergeSort(Scanner in) {
-        this.in = in;
-    }
-
+    /**
+     * Main method for getting input and output.
+     *
+     * @throws InputMismatchException if user enter not integer value in input().
+     */
     @Override
-    public void execute() {
-        int[] array;
-        array = input();
-        // output unsorted array
-        System.out.println(Arrays.toString(array));
-        // output sorted array
-        System.out.println(Arrays.toString(mergeSort(array)));
+    public void execute() throws InputMismatchException {
+        int[] arrayForSorting = input();
+        System.out.println(Arrays.toString(arrayForSorting));
+        System.out.println(Arrays.toString(mergeSort(arrayForSorting)));
     }
 
-    private int[] input() {
+    /**
+     * Method for getting input of number of elements in array and this array.
+     *
+     * @return integer array that will be sorted.
+     * @throws InputMismatchException if user enters not integer value.
+     */
+    private int[] input() throws InputMismatchException {
+        Scanner scanner = new Scanner(System.in);
         int arrayLength;
         // input array length
         System.out.println("Enter number of elements in array:");
         while (true) {
-            arrayLength = in.nextInt();
+            arrayLength = scanner.nextInt();
             // if valid length of array - breaks from loop and continue execution
             if (arrayLength > 0) {
                 break;
             }
             System.out.println("The array length should be positive. Enter once more:");
         }
-        int[] array;
-        // allocate memory for array and input it
-        array = new int[arrayLength];
+        int[] arrayForSorting;
+        arrayForSorting = new int[arrayLength];
         System.out.println("Enter " + arrayLength + " integer elements of the array:");
         for (int i = 0; i < arrayLength; i++) {
-            array[i] = in.nextInt();
+            arrayForSorting[i] = scanner.nextInt();
         }
-        return array;
+        scanner.close();
+        return arrayForSorting;
     }
 
-    public int[] mergeSort(int[] array) {
-        int lengthOfArray = array.length;
-        if (lengthOfArray < 2) return array;
+    /**
+     * Method for sorting an array.
+     *
+     * @param arrayForSorting array that will be sorted.
+     * @return sorted array.
+     */
+    public int[] mergeSort(int[] arrayForSorting) {
+        int lengthOfArray = arrayForSorting.length;
+        if (lengthOfArray < 2) {
+            return arrayForSorting;
+        }
         int middle = lengthOfArray / 2;
+        printPartsOfArray(arrayForSorting, middle, lengthOfArray);
         // divide array into small arrays and than merge + sort them
-        return merge(mergeSort(Arrays.copyOfRange(array, 0, middle)),
-                mergeSort(Arrays.copyOfRange(array, middle, lengthOfArray)));
+        return merge(mergeSort(Arrays.copyOfRange(arrayForSorting, 0, middle)),
+            mergeSort(Arrays.copyOfRange(arrayForSorting, middle, lengthOfArray)));
     }
 
-    private int[] merge(int[] firstArray, int[] secondArray) {
-        int lengthOfFirstArray;
-        lengthOfFirstArray = firstArray.length;
-        int lengthOfSecondArray;
-        lengthOfSecondArray = secondArray.length;
-        int indexOfFirstArray;
-        indexOfFirstArray = 0;
-        int indexOfSecondArray;
-        indexOfSecondArray = 0;
-        // length of new array
-        int fullLength;
-        fullLength = lengthOfFirstArray + lengthOfSecondArray;
+    /**
+     * Method for merging two arrays into one sorted array.
+     *
+     * @param leftArray  left part of array.
+     * @param rightArray right part of array.
+     * @return sorted array.
+     */
+    private int[] merge(int[] leftArray, int[] rightArray) {
+        int lengthOfLeftArray = leftArray.length;
+        int lengthOfRightArray = rightArray.length;
+        int indexOfLeftArray = 0;
+        int indexOfRightArray = 0;
+        int fullLength = lengthOfLeftArray + lengthOfRightArray;
         // array that will be merged from first and second arrays
-        int[] resultArray;
-        resultArray = new int[fullLength];
+        int[] resultArray = new int[fullLength];
         // merging first and second array into one sorted array
         for (int i = 0; i < fullLength; i++) {
-            if (indexOfFirstArray < lengthOfFirstArray && indexOfSecondArray < lengthOfSecondArray) {
-                if (firstArray[indexOfFirstArray] > secondArray[indexOfSecondArray]) {
-                    resultArray[i] = secondArray[indexOfSecondArray];
-                    indexOfSecondArray++;
+            if ((indexOfLeftArray < lengthOfLeftArray)
+                && (indexOfRightArray < lengthOfRightArray)) {
+                if (leftArray[indexOfLeftArray] > rightArray[indexOfRightArray]) {
+                    resultArray[i] = rightArray[indexOfRightArray];
+                    indexOfRightArray++;
                 } else {
-                    resultArray[i] = firstArray[indexOfFirstArray++];
+                    resultArray[i] = leftArray[indexOfLeftArray++];
                 }
-            } else if (indexOfSecondArray < lengthOfSecondArray) {
-                resultArray[i] = secondArray[indexOfSecondArray++];
+            } else if (indexOfRightArray < lengthOfRightArray) {
+                resultArray[i] = rightArray[indexOfRightArray++];
             } else {
-                resultArray[i] = firstArray[indexOfFirstArray++];
+                resultArray[i] = leftArray[indexOfLeftArray++];
             }
         }
         // return merged and sorted array
         return resultArray;
+    }
+
+    /**
+     * Method for printing left and right parts of array.
+     *
+     * @param array         array for printing.
+     * @param middle        middle index of array.
+     * @param lengthOfArray length of current array.
+     */
+    private void printPartsOfArray(int[] array, int middle, int lengthOfArray) {
+        System.out.print("Left:[");
+        for (int i = 0; i < middle; i++) {
+            System.out.print(array[i] + " ");
+        }
+        System.out.print("\b] Right:[");
+        for (int i = middle; i < lengthOfArray; i++) {
+            System.out.print(array[i] + " ");
+        }
+        System.out.println("\b]");
     }
 }
