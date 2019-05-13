@@ -25,7 +25,6 @@ public class HighOrLowEffort implements Executable {
         System.out.println("The maximum amount of cost you can perform within these"
             + numberOfDays + "days is: "
             + findMaxAmountOfCost(numberOfDays, lowEffortTasks, highEffortTasks));
-        scanner.close();
     }
 
     /**
