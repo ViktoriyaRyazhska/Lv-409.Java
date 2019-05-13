@@ -41,7 +41,6 @@ public class OptimizedPaintingFence implements Executable {
             }
             System.out.println("Posts and colors quantity should be positive. Try again:");
         }
-        in.close();
     }
 
     /**

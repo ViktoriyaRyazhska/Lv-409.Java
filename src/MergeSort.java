@@ -46,7 +46,6 @@ public class MergeSort implements Executable {
         for (int i = 0; i < arrayLength; i++) {
             arrayForSorting[i] = scanner.nextInt();
         }
-        scanner.close();
         return arrayForSorting;
     }
 
