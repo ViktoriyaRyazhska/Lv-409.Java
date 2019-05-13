@@ -106,7 +106,7 @@ public class BucketSort implements Executable {
      * @param setOfNumbers The array of numbers.
      * @return Sorted array of numbers.
      */
-    private int[] bucketSort(int[] setOfNumbers) {
+    public int[] bucketSort(int[] setOfNumbers) {
         Map<Integer, List<Integer>> sortedMap = new HashMap<>();
         for (int i = 0; i < setOfNumbers.length; i++) {
             int currentPosition = msBits(setOfNumbers, i);
