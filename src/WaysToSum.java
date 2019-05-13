@@ -9,24 +9,12 @@ import java.util.Scanner;
  */
 public class WaysToSum implements Executable {
 
-    private Scanner scanner;
-
-    /**
-     * Constructor for class WaysToSum.
-     *
-     * @param scanner Scanner for input in the class.
-     */
-    public WaysToSum(Scanner scanner) {
-
-        this.scanner = scanner;
-
-    }
-
     /**
      * Main method for getting input, calculation and outputing.
      */
     @Override
     public void execute() {
+        Scanner scanner = new Scanner(System.in);
 
         int digit;
         System.out.println("Enter number to be summed up: ");
@@ -44,18 +32,7 @@ public class WaysToSum implements Executable {
             System.out.println("Incorrect. Enter once more:");
         }
 
-        output(calculate(digit, input()));
-
-    }
-
-    /**
-     * Method for printing execution result.
-     *
-     * @param num Number of ways (result of the execution).
-     */
-    public void output(int num) {
-
-        System.out.println("Required number of ways: " + num);
+        System.out.println("Required number of ways: " + calculate(digit, input(scanner)));
 
     }
 
@@ -65,7 +42,7 @@ public class WaysToSum implements Executable {
      *
      * @return Integer array.
      */
-    public int[] input() {
+    public int[] input(Scanner scanner) {
 
         System.out.println("Input array of integers ( e.g.: 3 2 1 4 0 ):");
 
@@ -82,7 +59,7 @@ public class WaysToSum implements Executable {
 
         } catch (NumberFormatException e) {
             System.out.println("Invalid input! Try again. ");
-            array = input();
+            array = input(scanner);
         }
 
         return array;
@@ -99,10 +76,10 @@ public class WaysToSum implements Executable {
      */
     int calculate(int digitNum, int[] array) {
 
-        if(digitNum < 1) {
+        if (digitNum < 1) {
             return 0;
         }
-        for(int i : array) {
+        for (int i : array) {
             if (i < 1) {
                 return 0;
             }
