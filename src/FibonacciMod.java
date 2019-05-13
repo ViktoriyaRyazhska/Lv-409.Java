@@ -39,7 +39,6 @@ public class FibonacciMod implements Executable {
             }
             System.out.println("The number can not be negative. Enter once more:");
         }
-        scanner.close();
         return numberToFindFib;
     }
 

@@ -25,7 +25,6 @@ public class Fibonacci implements Executable {
             }
             System.out.println("The number can not be negative. Enter once more:");
         }
-        in.close();
         //answer output
         int answer = findFibonacciNumber(numberOfFib);
         if (answer == -1) {

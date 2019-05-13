@@ -25,7 +25,6 @@ public class LongestPalindromicSubsequence implements Executable {
         Scanner in = new Scanner(System.in);
         System.out.println("Input string to be checked for palindromic subsequence");
         String seq = in.nextLine();
-        in.close();
         System.out.println("The length of the lps is "
                 + findLongestPalindromicSubsequenceLength(seq));
     }
