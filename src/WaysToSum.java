@@ -33,7 +33,7 @@ public class WaysToSum implements Executable {
         }
 
         System.out.println("Required number of ways: " + calculate(digit, input(scanner)));
-        scanner.close();
+
 
     }
 

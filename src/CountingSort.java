@@ -48,7 +48,6 @@ public class CountingSort implements Executable {
         for (int i = 0; i < arrayLength; i++) {
             array[i] = in.nextInt();
         }
-        in.close();
         return array;
     }
 
