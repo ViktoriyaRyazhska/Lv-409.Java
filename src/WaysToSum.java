@@ -76,10 +76,10 @@ public class WaysToSum implements Executable {
      */
     int calculate(int digitNum, int[] array) {
 
-        if(digitNum < 1) {
+        if (digitNum < 1) {
             return 0;
         }
-        for(int i : array) {
+        for (int i : array) {
             if (i < 1) {
                 return 0;
             }
