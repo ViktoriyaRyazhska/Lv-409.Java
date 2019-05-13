@@ -11,7 +11,7 @@ public class WaysToCoverInThreeSteps implements Executable {
     private Scanner sc;
 
     /**
-     * Constuctor for WaysToCoverInThreeSteps's class. 
+     * Constuctor for WaysToCoverInThreeSteps's class.
      *
      * @param sc input scanner
      */
@@ -57,20 +57,18 @@ public class WaysToCoverInThreeSteps implements Executable {
 
         int distance;
 
-        try {
+        while (true) {
 
             distance = sc.nextInt();
 
-            if (distance < 3) {
-                throw new NumberFormatException();
+            if (distance > 2) {
+                break;
             }
-
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid input! Try again. ");
-            distance = initDistance();
+            System.out.println("Invalid input! int should be bigger than 2. Try again!");
         }
 
         return distance;
+
     }
 
 }
