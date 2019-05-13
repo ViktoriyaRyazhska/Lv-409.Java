@@ -41,8 +41,8 @@ public class FibonacciTest {
     @Test
     public void findFibonacciNumber() {
         assertEquals(1, task.findFibonacciNumber(1));
-        assertEquals(8, task.findFibonacciNumber(6));
-        assertEquals(1134903170, task.findFibonacciNumber(45));
+        assertEquals(13, task.findFibonacciNumber(6));
+        assertEquals(1836311903, task.findFibonacciNumber(45));
     }
 
 }
