@@ -9,19 +9,12 @@ import java.util.Scanner;
  * @author Taras Hlukhovetskyi
  */
 public class Fibonacci implements Executable {
-    private Scanner in;
 
-    /**
-     * Constructor that sets Scanner.
-     * @param in Scanner to get the input from
-     */
-    public Fibonacci(Scanner in) {
-        this.in = in;
-    }
 
     @Override
     public void execute() {
         //input
+        Scanner in = new Scanner(System.in);
         System.out.println("Enter number of fibonacci :");
         int numberOfFib;
         while (true) {
@@ -32,6 +25,7 @@ public class Fibonacci implements Executable {
             }
             System.out.println("The number can not be negative. Enter once more:");
         }
+        in.close();
         //answer output
         int answer = findFibonacciNumber(numberOfFib);
         if (answer == -1) {

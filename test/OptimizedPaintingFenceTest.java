@@ -7,7 +7,7 @@ public class OptimizedPaintingFenceTest {
 
     @Test
     public void defaultValueTest(){
-        OptimizedPaintingFence opf = new OptimizedPaintingFence(new Scanner(System.in));
+        OptimizedPaintingFence opf = new OptimizedPaintingFence();
         assertEquals(16, opf.countWaysToColor(2,4));
         assertEquals(1, opf.countWaysToColor(1,1));
     }

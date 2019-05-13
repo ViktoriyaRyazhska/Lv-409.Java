@@ -9,15 +9,6 @@ import java.util.Scanner;
  */
 public class LongestPalindromicSubsequence implements Executable {
 
-    private Scanner in;
-
-    /**
-     * Constructor that sets Scanner.
-     * @param in Scanner to get the input from
-     */
-    public LongestPalindromicSubsequence(Scanner in) {
-        this.in = in;
-    }
 
     /**
      * A utility function to get the maximum of two integers.
@@ -31,8 +22,10 @@ public class LongestPalindromicSubsequence implements Executable {
 
     @Override
     public void execute() {
+        Scanner in = new Scanner(System.in);
         System.out.println("Input string to be checked for palindromic subsequence");
         String seq = in.nextLine();
+        in.close();
         System.out.println("The length of the lps is "
                 + findLongestPalindromicSubsequenceLength(seq));
     }

@@ -8,7 +8,7 @@ public class CountingSortTest {
 
     @Test
     public void defaultArraySort(){
-        CountingSort countingSort = new CountingSort(new Scanner(System.in));
+        CountingSort countingSort = new CountingSort();
         int[] actual = {9, 8, 7, 6, 9, 6};
         int[] expected = {6, 6, 7, 8, 9, 9};
         countingSort.countingSort(actual);
