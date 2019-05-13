@@ -13,7 +13,7 @@ public class FriendPairsTest {
 
     @Before
     public void init() {
-        task = new FriendPairs(new Scanner(System.in));
+        task = new FriendPairs();
     }
 
     @After
