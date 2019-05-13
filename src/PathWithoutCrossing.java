@@ -8,20 +8,6 @@ import java.util.Scanner;
  */
 public class PathWithoutCrossing implements Executable {
 
-    // The number of points in the circle
-    private Scanner scanner;
-
-    /**
-     * Constructor for class PathWithoutCrossing.
-     *
-     * @param scanner Scanner for input in the class.
-     */
-    public PathWithoutCrossing(Scanner scanner) {
-
-        this.scanner = scanner;
-
-    }
-
     /**
      * Main method for getting input, calculating and output of result.
      */
@@ -29,7 +15,7 @@ public class PathWithoutCrossing implements Executable {
     public void execute() {
 
         int calcArg = input();
-        output(calculate(calcArg));
+        System.out.println("Number of crossing paths: " + calculate(calcArg));
 
     }
 
@@ -39,6 +25,7 @@ public class PathWithoutCrossing implements Executable {
      * @return Int - the number of points in the circle.
      */
     public int input() {
+        Scanner scanner = new Scanner(System.in);
         int pointNum;
         System.out.println("Enter the number of points in the circle: ");
         String line;
@@ -59,17 +46,6 @@ public class PathWithoutCrossing implements Executable {
     }
 
     /**
-     * Method for printing execution result.
-     *
-     * @param numCrossing Execution result (number of ways to connect points).
-     */
-    public void output(int numCrossing) {
-
-        System.out.println("Number of crossing paths: " + numCrossing);
-
-    }
-
-    /**
      * Method for calculating the number of ways.
      *
      * @param innerPointNum The number of points divided by 2.
@@ -77,7 +53,7 @@ public class PathWithoutCrossing implements Executable {
      */
     int calculate(int innerPointNum) {
 
-        innerPointNum = innerPointNum/2;
+        innerPointNum = innerPointNum / 2;
 
         if (innerPointNum < 2) {
             return 0;

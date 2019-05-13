@@ -1,21 +1,34 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Class for calculating result of painting fence problem.
+ * using one variable instead of a table to optimize.
+ *
+ * @author Volodymyr Oseredchuk
+ */
 public class OptimizedPaintingFence implements Executable {
-    private Scanner in;
     private int postsCount;
     private int colorsCount;
 
-    public OptimizedPaintingFence(Scanner in) {
-        this.in = in;
-    }
-
+    /**
+     * Method for executing algorithm - includes input and output.
+     *
+     * @throws InputMismatchException if input types are not compatible with int
+     */
     @Override
-    public void execute() {
+    public void execute() throws InputMismatchException {
         input();
-        System.out.println(countWaysToColor());
+        System.out.println(countWaysToColor(postsCount, colorsCount));
     }
 
-    private void input() {
+    /**
+     * Method for getting posts and colors count from user.
+     *
+     * @throws InputMismatchException if input type is not compatible with int
+     */
+    public void input() throws InputMismatchException {
+        Scanner in = new Scanner(System.in);
         // input posts and colors count
         while (true) {
             System.out.println("Enter number of posts:");
@@ -28,23 +41,32 @@ public class OptimizedPaintingFence implements Executable {
             }
             System.out.println("Posts and colors quantity should be positive. Try again:");
         }
+        in.close();
     }
 
-    /*
-        Rule: at most 2 adjacent posts have the same color.
+    /**
+     * Method for counting ways to paint the fence
+     * using optimized painting fence algorithm.
+     *
+     * @param postsCount  int quantity of posts that needs to be painted
+     * @param colorsCount int quantity of different colors
+     * @return waysToColor long quantity of ways to paint the fence
      */
-    private long countWaysToColor() {
-        long waysToColor;
-        // there are colorsCount ways to color the first post
-        waysToColor = colorsCount;
+    public long countWaysToColor(int postsCount, int colorsCount) {
         /*
-            there are 0 ways for single post to violate the rule - same color
-            and colorsCount ways to not violate - different color
+         * Rule: at most 2 adjacent posts have the same color.
          */
-        long same;
-        long different;
-        same = 0;
-        different = colorsCount;
+        if ((postsCount < 1) || (colorsCount < 1)) {
+            return 0;
+        }
+        // there are colorsCount ways to color the first post
+        long waysToColor = colorsCount;
+        /*
+         * there are 0 ways for single post to violate the rule - same color
+         * and colorsCount ways to not violate - different color
+         */
+        long same = 0;
+        long different = colorsCount;
         // coloring the rest of the fence
         for (int i = 2; i <= postsCount; i++) {
             // 'different' value for previous post equals 'same' value for current post

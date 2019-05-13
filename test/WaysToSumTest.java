@@ -2,16 +2,13 @@ import static org.junit.Assert.assertEquals;
 import java.util.Scanner;
 import org.junit.*;
 
-/**
- * @author Rostyslav Hlynka
- */
 public class WaysToSumTest {
     
     private WaysToSum waysToSum;
     
     @Before  
     public void init() {     
-        waysToSum = new WaysToSum(new Scanner(System.in));     
+        waysToSum = new WaysToSum(new Scanner(System.in));
     }
     
     @After  

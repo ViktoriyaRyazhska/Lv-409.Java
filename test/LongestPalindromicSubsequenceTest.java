@@ -1,3 +1,5 @@
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Scanner;
@@ -6,8 +8,17 @@ import static org.junit.Assert.*;
 
 public class LongestPalindromicSubsequenceTest {
 
-    LongestPalindromicSubsequence task =
-            new LongestPalindromicSubsequence(new Scanner(System.in));
+    LongestPalindromicSubsequence task;
+
+    @Before
+    public void init() {
+        task = new LongestPalindromicSubsequence();
+    }
+
+    @After
+    public void deleteObject() {
+        task = null;
+    }
 
     @Test
     public void max() {
