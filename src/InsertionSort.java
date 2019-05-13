@@ -60,7 +60,7 @@ public class InsertionSort implements Executable {
      * 
      * @return array that need to be sorted
      */
-    public int[] initArray() {
+    private int[] initArray() {
 
         System.out.println("Input array of integers, int[] ( e.g.: 3 2 1 4 0 ):");
 

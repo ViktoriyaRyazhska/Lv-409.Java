@@ -55,7 +55,6 @@ public class Main {
                 if (num > 0 && num <= classList.size()) {
 
                     try {
-
                         // Creating new instance for chosen task and calling execute() method
                         classList.get(num - 1).getConstructor(Scanner.class).
                             newInstance(new Scanner(System.in)).execute();
@@ -63,7 +62,6 @@ public class Main {
 
                     // Inner task error
                     catch (Exception e) {
-
                         System.err.println("Task execution failed.");
                     }
 
