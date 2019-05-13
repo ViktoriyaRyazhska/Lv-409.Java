@@ -35,7 +35,6 @@ public class WaysToTile implements Executable {
             System.out.println("Vertical and horizontal quantity of tiles should be positive. "
                     + "Try again:");
         }
-        in.close();
 
     }
 

@@ -41,7 +41,6 @@ public class PathWithoutCrossing implements Executable {
             }
             System.out.println("Incorrect number (number must be more than 1. Enter once more:");
         }
-        scanner.close();
 
         return pointNum;
     }
