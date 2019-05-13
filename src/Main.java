@@ -30,6 +30,7 @@ public class Main {
             add(HighOrLowEffort.class);
             add(LongestPalindromicSubsequence.class);
             add(FriendPairs.class);
+            add(WaysToTile.class);
             add(PaintingFence.class);
             add(OptimizedPaintingFence.class);
         }
