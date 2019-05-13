@@ -11,7 +11,7 @@ public class WaysToSumTest {
     
     @Before  
     public void init() {     
-        waysToSum = new WaysToSum(new Scanner(System.in));     
+        waysToSum = new WaysToSum(new Scanner(System.in));
     }
     
     @After  

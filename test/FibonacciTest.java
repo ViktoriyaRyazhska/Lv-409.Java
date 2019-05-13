@@ -15,7 +15,7 @@ public class FibonacciTest {
 
     @Before
     public void init() {
-        task = new Fibonacci(new Scanner(System.in));
+        task = new Fibonacci();
     }
 
     @After

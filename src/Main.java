@@ -55,9 +55,8 @@ public class Main {
                 if (num > 0 && num <= CLASS_LIST.size()) {
 
                     try {
-
-                        CLASS_LIST.get(num - 1).getConstructor(Scanner.class)
-                                .newInstance(new Scanner(System.in)).execute();
+                        CLASS_LIST.get(num - 1).getConstructor()
+                                .newInstance().execute();
                     } catch (Exception e) {
                         System.err.println("Task execution failed.");
                     }
