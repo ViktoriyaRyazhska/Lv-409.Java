@@ -14,6 +14,7 @@ public class QuickSort implements Executable {
      */
     @Override
     public void execute() {
+        
         int[] array = initArray();
         quickSort(array, 0, array.length - 1);
         System.out.println(Arrays.toString(array));

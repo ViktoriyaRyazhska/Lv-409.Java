@@ -56,7 +56,7 @@ public class Main {
 
                     try {
                         // Creating new instance for chosen task and calling execute() method
-                        classList.get(num - 1).getConstructor(Scanner.class).
+                        classList.get(num - 1).getConstructor().
                             newInstance().execute();
                     }
 

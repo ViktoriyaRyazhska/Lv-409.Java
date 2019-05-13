@@ -8,22 +8,12 @@ import java.util.Scanner;
 
 public class WaysToCoverInThreeSteps implements Executable {
 
-    private Scanner sc;
-
-    /**
-     * Constuctor for WaysToCoverInThreeSteps's class.
-     *
-     * @param sc input scanner
-     */
-    public WaysToCoverInThreeSteps(Scanner sc) {
-        this.sc = sc;
-    }
-
     /**
      * Runs the task's implementation.
      */
     @Override
     public void execute() {
+        
         int distance = initDistance();
         int ways = countWays(distance);
         System.out.println(ways);
@@ -54,7 +44,8 @@ public class WaysToCoverInThreeSteps implements Executable {
     private int initDistance() {
 
         System.out.println("Input the distance, int (bigger than 2):");
-
+        Scanner sc = new Scanner(System.in);
+        
         int distance;
 
         while (true) {

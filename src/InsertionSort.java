@@ -14,6 +14,7 @@ public class InsertionSort implements Executable {
      */
     @Override
     public void execute() {
+        
         int[] array = initArray();
         insertionSort(array);
         System.out.println(Arrays.toString(array));
