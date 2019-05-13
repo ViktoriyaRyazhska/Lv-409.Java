@@ -8,13 +8,10 @@ import java.util.Scanner;
  */
 public class PaintingFence implements Executable {
 
-    private Scanner in;
-
     /**
      * Constructs new PaintingFence object using specified Scanner.
      */
-    public PaintingFence(Scanner in) {
-        this.in = in;
+    public PaintingFence() {
     }
 
     /**
@@ -39,6 +36,7 @@ public class PaintingFence implements Executable {
      */
     public int inputOutput() throws InputMismatchException {
         System.out.println("Just tell me how many posts and colors to use.");
+        Scanner in = new Scanner(System.in);
         while (true) {
             System.out.println("Please enter the number of posts");
             int posts = in.nextInt();

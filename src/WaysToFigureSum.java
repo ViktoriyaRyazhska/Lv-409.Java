@@ -9,13 +9,11 @@ import java.util.Scanner;
 
 public class WaysToFigureSum implements Executable {
 
-    private Scanner in;
 
     /**
      * Constructs a new WaysToFigureSum using Scanner object.
      */
-    public WaysToFigureSum(Scanner in) {
-        this.in = in;
+    public WaysToFigureSum() {
     }
 
     /**
@@ -40,6 +38,7 @@ public class WaysToFigureSum implements Executable {
      */
     public int input() throws InputMismatchException {
         System.out.println("Please enter the positive number to get all its possible partitions");
+        Scanner in = new Scanner(System.in);
         while (true) {
             int userNumber = in.nextInt();
             if (userNumber >= 0) {
