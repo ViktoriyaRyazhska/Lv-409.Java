@@ -12,7 +12,7 @@ public class PaintingFenceTest {
 
     @Before
     public void setUp() throws Exception {
-        test = new PaintingFence(new Scanner(System.in));
+        test = new PaintingFence();
     }
 
     @After

@@ -12,7 +12,7 @@ public class WaysToFigureSuTest {
 
     @Before
     public void setUp() throws Exception {
-        test = new WaysToFigureSum(new Scanner(System.in));
+        test = new WaysToFigureSum();
     }
 
     @After

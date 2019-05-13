@@ -57,7 +57,7 @@ public class Main {
                     try {
                         // Creating new instance for chosen task and calling execute() method
                         classList.get(num - 1).getConstructor(Scanner.class).
-                            newInstance(new Scanner(System.in)).execute();
+                            newInstance().execute();
                     }
 
                     // Inner task error
