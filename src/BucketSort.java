@@ -7,17 +7,6 @@ import java.util.*;
  */
 
 public class BucketSort implements Executable {
-    private Scanner scan;
-
-    /**
-     * Constructor for class PathWithoutCrossing.
-     *
-     * @param scan Scanner for input in the class.
-     */
-
-    public BucketSort(Scanner scan) {
-        this.scan = scan;
-    }
 
     /**
      * Main method for getting input, calculating and output of result.
@@ -35,6 +24,7 @@ public class BucketSort implements Executable {
      * @return int[] - the array of numbers.
      */
     private int[] input() {
+        Scanner scan = new Scanner(System.in);
         int arrayLength;
         System.out.println("Enter number of elements in array:");
 
@@ -64,6 +54,7 @@ public class BucketSort implements Executable {
     private int[] output(int[] setOfNumbers) {
         return bucketSort(setOfNumbers);
     }
+
     /**
      * Method for searching the maximal number of array.
      *
@@ -78,6 +69,7 @@ public class BucketSort implements Executable {
         }
         return maxValue;
     }
+
     /**
      * Method for searching the minimal number of array.
      *
@@ -92,11 +84,12 @@ public class BucketSort implements Executable {
         }
         return minValue;
     }
+
     /**
      * Method for calculating the number of bucket.
      *
      * @param setOfNumbers The array of numbers.
-     * @param number The position number of an element in array of numbers.
+     * @param number       The position number of an element in array of numbers.
      * @return The number of bucket.
      */
     private int msBits(int[] setOfNumbers, int number) {
@@ -106,6 +99,7 @@ public class BucketSort implements Executable {
         return (int) (((double) (setOfNumbers[number] - minNumber)
             / (double) (maxNumber - minNumber + 1)) * count);
     }
+
     /**
      * Method for sorting the array by using the "Bucket Sort" algorithm .
      *
