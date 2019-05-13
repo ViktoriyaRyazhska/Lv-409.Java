@@ -6,7 +6,6 @@ import java.util.Scanner;
  *
  * @author Olena Andrushchenko
  */
-
 public class WaysToFigureSum implements Executable {
 
     private Scanner in;
@@ -28,8 +27,6 @@ public class WaysToFigureSum implements Executable {
     public void execute() throws InputMismatchException {
         int userNumber = input();
         output(waysToSum(userNumber));
-
-
     }
 
     /**
@@ -43,8 +40,6 @@ public class WaysToFigureSum implements Executable {
         while (true) {
             int userNumber = in.nextInt();
             if (userNumber >= 0) {
-
-
                 return userNumber;
             }
             System.out.println("Sorry but Your number is not positive. Try again");
@@ -58,10 +53,7 @@ public class WaysToFigureSum implements Executable {
      * @param userNumber The number returned by input() method
      */
     public void output(int userNumber) {
-
-
         System.out.println("The number of partitions is: " + userNumber);
-
     }
 
     /**
@@ -75,11 +67,8 @@ public class WaysToFigureSum implements Executable {
      * @return maximum combinations of users's number partitions.
      */
     public int waysToSum(int param) {
-
         int[] count = new int[param + 1];
-
         count[0] = 1;
-
         for (int i = 1; i < param; i++) {
             for (int j = i; j <= param; j++) {
                 count[j] += count[j - i];
@@ -87,6 +76,4 @@ public class WaysToFigureSum implements Executable {
         }
         return count[param];
     }
-
-
 }
