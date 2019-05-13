@@ -12,7 +12,7 @@ public class FibonacciModTest {
      */
     @Test
     public void findFibNumberTest() {
-        FibonacciMod findFibNumber = new FibonacciMod(new Scanner(System.in));
+        FibonacciMod findFibNumber = new FibonacciMod();
         int actual = 6;
         int expected = 4;
         int result = findFibNumber.findFibNumber(actual);
