@@ -1,10 +1,13 @@
 import org.junit.Test;
 
+import java.util.Scanner;
+
 import static org.junit.Assert.assertArrayEquals;
 
+/**
+ *
+ */
 public class MergeSortTest {
-
-    private MergeSort mergeSort = new MergeSort();
 
     /**
      * Validates {@link MergeSort#mergeSort(int[])} method.
