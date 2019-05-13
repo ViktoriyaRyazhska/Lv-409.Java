@@ -7,17 +7,6 @@ import java.util.Scanner;
  */
 
 public class LongestSubsequence implements Executable {
-    private Scanner scan;
-
-    /**
-     * Constructor for class PathWithoutCrossing.
-     *
-     * @param scan Scanner for input in the class.
-     */
-
-    public LongestSubsequence(Scanner scan) {
-        this.scan = scan;
-    }
 
     /**
      * Main method for getting input, calculating and output of result.
@@ -28,12 +17,14 @@ public class LongestSubsequence implements Executable {
         int result = output(inputArray);
         System.out.println("Maximal length of subsequence: " + result);
     }
+
     /**
      * Method for getting input from user: the array of numbers.
      *
      * @return int[] - the array of numbers.
      */
     private int[] inputValues() {
+        Scanner scan = new Scanner(System.in);
         int arrayLength;
         System.out.println("Enter number of elements in array:");
 
@@ -51,6 +42,7 @@ public class LongestSubsequence implements Executable {
         }
         return setOfNumbers;
     }
+
     /**
      * Method for printing execution result.
      *
