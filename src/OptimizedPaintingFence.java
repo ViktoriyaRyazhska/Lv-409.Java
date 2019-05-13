@@ -8,18 +8,8 @@ import java.util.Scanner;
  * @author Volodymyr Oseredchuk
  */
 public class OptimizedPaintingFence implements Executable {
-    private Scanner in;
     private int postsCount;
     private int colorsCount;
-
-    /**
-     * Constructor for class OptimizedPaintingFence.
-     *
-     * @param sc Scanner scanner object for console input
-     */
-    public OptimizedPaintingFence(Scanner sc) {
-        this.in = sc;
-    }
 
     /**
      * Method for executing algorithm - includes input and output.
@@ -38,6 +28,7 @@ public class OptimizedPaintingFence implements Executable {
      * @throws InputMismatchException if input type is not compatible with int
      */
     public void input() throws InputMismatchException {
+        Scanner in = new Scanner(System.in);
         // input posts and colors count
         while (true) {
             System.out.println("Enter number of posts:");
@@ -50,6 +41,7 @@ public class OptimizedPaintingFence implements Executable {
             }
             System.out.println("Posts and colors quantity should be positive. Try again:");
         }
+        in.close();
     }
 
     /**

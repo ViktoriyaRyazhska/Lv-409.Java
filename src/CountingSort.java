@@ -8,16 +8,6 @@ import java.util.Scanner;
  * @author Volodymyr Oseredchuk
  */
 public class CountingSort implements Executable {
-    private Scanner in;
-
-    /**
-     * Constructor for class CountingSort.
-     *
-     * @param sc Scanner scanner object for console input
-     */
-    public CountingSort(Scanner sc) {
-        this.in = sc;
-    }
 
     /**
      * Method for executing algorithm - includes input and output.
@@ -41,6 +31,7 @@ public class CountingSort implements Executable {
     public int[] input() throws InputMismatchException {
         int arrayLength;
         int[] array;
+        Scanner in = new Scanner(System.in);
         // input array length
         System.out.println("Enter number of elements in array:");
         while (true) {
@@ -57,6 +48,7 @@ public class CountingSort implements Executable {
         for (int i = 0; i < arrayLength; i++) {
             array[i] = in.nextInt();
         }
+        in.close();
         return array;
     }
 
