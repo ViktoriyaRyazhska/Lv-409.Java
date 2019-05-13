@@ -20,6 +20,7 @@ public class MergeSort implements Executable {
         System.out.println(Arrays.toString(arrayForSorting));
         System.out.println(Arrays.toString(mergeSort(arrayForSorting)));
     }
+
     /**
      * Method for getting input of number of elements in array and this array.
      *
