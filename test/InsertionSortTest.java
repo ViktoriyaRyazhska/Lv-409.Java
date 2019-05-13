@@ -1,10 +1,8 @@
 import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
 
 public class InsertionSortTest {
 
