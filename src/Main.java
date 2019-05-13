@@ -11,7 +11,6 @@ public class Main {
 
     private static final Scanner SCANNER = new Scanner(System.in);
 
-
     private static final ArrayList<Class<? extends Executable>> CLASS_LIST =
             new ArrayList<Class<? extends Executable>>() {
         {
@@ -43,7 +42,6 @@ public class Main {
      */
     public static void main(String[] args) {
 
-
         description();
 
         while (true) {
@@ -56,8 +54,8 @@ public class Main {
                 if (num > 0 && num <= CLASS_LIST.size()) {
 
                     try {
-                        CLASS_LIST.get(num - 1).getConstructor()
-                                .newInstance().execute();
+                        // Creating new instance for chosen task and calling execute() method
+                        CLASS_LIST.get(num - 1).getConstructor().newInstance().execute();
                     } catch (Exception e) {
                         System.err.println("Task execution failed.");
                     }
@@ -87,25 +85,26 @@ public class Main {
     private static void description() {
 
         System.out.println(
-                "1.Insertion sort\n"
-                        + "2.Counting sort\n"
-                        + "3.Quick sort\n"
-                        + "4.Bucket sort\n"
-                        + "5.Merge sort\n"
-                        + "6.Fibonacci\n"
-                        + "7.Modification Fibonacci\n"
-                        + "8.Interesting row\n"
-                        + "9.Longest subsequence with difference one\n"
-                        + "10.Ways to sum N using array elements with repetition\n"
-                        + "11.Ways to write n as a sum of two or more positive integers\n"
-                        + "12.Ways to cover in 3 steps\n"
-                        + "13.Paths without crossing Virtual programming lab\n"
-                        + "14.Work to be with High- or with Low-effort Virtual programming lab\n"
-                        + "15.The longest palindromic subsequence\n"
-                        + "16.Friend pairs\n"
-                        + "17.Ways to tile the floor\n"
-                        + "18.Painting the fence\n"
-                        + "19.Optimized painting fence: use one variable instead of a table"
+            "1.Insertion sort\n"
+                    + "2.Counting sort\n"
+                    + "3.Quick sort\n"
+                    + "4.Bucket sort\n"
+                    + "5.Merge sort\n"
+                    + "6.Fibonacci\n"
+                    + "7.Modification Fibonacci\n"
+                    + "8.Interesting row\n"
+                    + "9.Longest subsequence with difference one\n"
+                    + "10.Ways to sum N using array elements with repetition\n"
+                    + "11.Ways to write n as a sum of two or more positive integers\n"
+                    + "12.Ways to cover in 3 steps\n"
+                    + "13.Paths without crossing Virtual programming lab\n"
+                    + "14.Work to be with High-effort or with Low-effort Virtual programming lab\n"
+                    + "15.The longest palindromic subsequence\n"
+                    + "16.Friend pairs\n"
+                    + "17.Ways to tile the floor\n"
+                    + "18.Painting the fence\n"
+                    + "19.Optimized painting fence: use one variable instead of a table"
+
         );
 
     }
