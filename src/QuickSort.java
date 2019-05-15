@@ -1,40 +1,33 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
- * Sorting of int[] array by "Quick Sort" algorithm
+ * Sorting of int[] array by "Quick Sort" algorithm.
  * 
  * @author Rostyslav Hlynka
  */
 
 public class QuickSort implements Executable {
 
-    private Scanner sc;
-
     /**
-     * @param sc - input scanner
-     */
-    public QuickSort(Scanner sc) {
-        this.sc = sc;
-    }
-
-    /**
-     * Runs the task's implementation
+     * Runs the task's implementation.
      */
     @Override
     public void execute() {
+        
         int[] array = initArray();
         quickSort(array, 0, array.length - 1);
-        printArray(array);
+        System.out.println(Arrays.toString(array));
     }
-
+    
     /**
-     * Implementing "Quick Sort" algorithm
+     * Implementing "Quick Sort" algorithm.
      * 
-     * @param array - array that need to be sorted
-     * @param start - starting index
-     * @param end   - ending index
+     * @param array array that need to be sorted
+     * @param start starting index
+     * @param end   ending index
      */
-    private void quickSort(int[] array, int start, int end) {
+    public void quickSort(int[] array, int start, int end) {
 
         if (start < end) {
 
@@ -48,12 +41,12 @@ public class QuickSort implements Executable {
     }
 
     /**
-     * Takes last element as pivot and sorts: smaller elements than pivot --> to
-     * left of pivot greater elements than pivot --> to right of pivot
+     * Takes last element as pivot and sorts: smaller elements than pivot to left of
+     * pivot greater elements than pivot to right of pivot.
      * 
-     * @param array - array that need to be sorted
-     * @param start - starting index
-     * @param end   - ending index
+     * @param array array that need to be sorted
+     * @param start starting index
+     * @param end   ending index
      * @return index of pivot element at right position
      */
     private int getPivot(int[] array, int start, int end) {
@@ -76,43 +69,39 @@ public class QuickSort implements Executable {
     }
 
     /**
-     * Initialize int[] array (by user input), that need to be sorted
+     * Initialize int[] array (by user input), that need to be sorted.
      * 
      * @return array that need to be sorted
      */
     private int[] initArray() {
 
-        System.out.println("Input array of integers, int[] ( e.g.: 3 2 1 4 0 ):");
+        Scanner sc = new Scanner(System.in);
 
-        String inputtedLine = sc.nextLine();
-        String[] inputtedWords = inputtedLine.split(" ");
+        int arrayLength;
 
-        int[] array = new int[inputtedWords.length];
+        System.out.println("Enter number of elements in array:");
 
-        try {
-
-            for (int i = 0; i < array.length; i++) {
-                array[i] = Integer.parseInt(inputtedWords[i]);
+        while (true) {
+            
+            arrayLength = sc.nextInt();
+            // if valid length of array - breaks from loop and continue execution
+            if (arrayLength > 0) {
+                break;
             }
-
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid input! Try again. ");
-            array = initArray();
+            
+            System.out.println("The array length should be positive. Enter once more:");
+        }
+        
+        int[] array = new int[arrayLength];
+        
+        System.out.println("Enter " + arrayLength + " integer elements of the array:");
+        
+        for (int i = 0; i < arrayLength; i++) {
+            array[i] = sc.nextInt();
         }
 
         return array;
-    }
-
-    /**
-     * Output sorted array
-     * 
-     * @param array - array that is sorted and need to be printed
-     */
-    private void printArray(int[] array) {
-
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
-        }
+        
     }
 
 }

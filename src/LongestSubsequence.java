@@ -1,18 +1,62 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
-public class LongestSubsequence implements Executable{
+/**
+ * Class for calculation non-crossing lines to connect points in a circle.
+ *
+ * @author Olha Lozinska
+ */
 
+public class LongestSubsequence implements Executable {
+
+    /**
+     * Main method for getting input, calculating and output of result.
+     */
     @Override
     public void execute() {
-        List<Integer> setOfNumbers = inputValues();
+        int[] inputArray = inputValues();
+        int result = output(inputArray);
+        System.out.println("Maximal length of subsequence: " + result);
+    }
 
+    /**
+     * Method for getting input from user: the array of numbers.
+     *
+     * @return int[] - the array of numbers.
+     */
+    private int[] inputValues() {
+        Scanner scan = new Scanner(System.in);
+        int arrayLength;
+        System.out.println("Enter number of elements in array:");
+
+        while (true) {
+            arrayLength = scan.nextInt();
+            if (arrayLength > 0) {
+                break;
+            }
+            System.out.println("The array length should be positive. Enter once more:");
+        }
+        int[] setOfNumbers = new int[arrayLength];
+        System.out.println("Enter " + arrayLength + " integer elements of the array:");
+        for (int i = 0; i < arrayLength; i++) {
+            setOfNumbers[i] = scan.nextInt();
+        }
+        return setOfNumbers;
+    }
+
+    /**
+     * Method for printing execution result.
+     *
+     * @param setOfNumbers the array of numbers.
+     */
+    public int output(int[] setOfNumbers) {
+        if (null == setOfNumbers) {
+            return -1;
+        }
         int counter = 1;
         int maxSequenceLength = 1;
-        for (int i = 0; i < setOfNumbers.size() - 1; i++) {
-            if ((setOfNumbers.get(i + 1) - setOfNumbers.get(i)) == 1) {
-                counter += 1;
+        for (int i = 0; i < setOfNumbers.length - 1; i++) {
+            if ((setOfNumbers[i + 1] - setOfNumbers[i]) == 1) {
+                counter++;
                 if (maxSequenceLength < counter) {
                     maxSequenceLength = counter;
                 }
@@ -21,17 +65,6 @@ public class LongestSubsequence implements Executable{
             }
 
         }
-        System.out.println("Maximal length of subsequence: " + maxSequenceLength);
-    }
-
-    private List<Integer> inputValues() {
-        System.out.println("Input a set of integer numbers: ");
-        System.out.println("To finish entering numbers input any non-integer value.");
-        Scanner scan = new Scanner(System.in);
-        List<Integer> setOfNumbers = new ArrayList<>();
-        while (scan.hasNextInt()) {
-            setOfNumbers.add(scan.nextInt());
-        }
-        return setOfNumbers;
+        return maxSequenceLength;
     }
 }
